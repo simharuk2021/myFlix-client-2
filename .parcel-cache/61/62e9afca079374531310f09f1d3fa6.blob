@@ -26319,13 +26319,24 @@ try {
     }
     render() {
       const {movies, selectedMovie} = this.state;
+      if (selectedMovie) return (
+        /*#__PURE__*/_reactDefault.default.createElement(_movieViewMovieView.MovieView, {
+          movie: selectedMovie,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 27,
+            columnNumber: 31
+          }
+        })
+      );
       if (movies.length === 0) return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "main-view",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 28,
+            lineNumber: 29,
             columnNumber: 37
           }
         }, "The list is empty!")
@@ -26336,21 +26347,10 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 31,
+            lineNumber: 32,
             columnNumber: 7
           }
-        }, selectedMovie ? /*#__PURE__*/_reactDefault.default.createElement(_movieViewMovieView.MovieView, {
-          movie: selectedMovie,
-          onBackClick: newSelectedMovie => {
-            this.setSelectedMovie(newSelectedMovie);
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 33,
-            columnNumber: 13
-          }
-        }) : movies.map(movie => /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
+        }, movies.map(movie => /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
           key: movie._id,
           movie: movie,
           onMovieClick: movie => {
@@ -26359,8 +26359,8 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 35,
-            columnNumber: 13
+            lineNumber: 33,
+            columnNumber: 30
           }
         })))
       );
@@ -26626,7 +26626,7 @@ try {
   var _jsxFileName = "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\movie-view\\movie-view.jsx";
   class MovieView extends _reactDefault.default.Component {
     render() {
-      const {movie, onBackClick} = this.props;
+      const {movie} = this.props;
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-view",
@@ -26700,17 +26700,7 @@ try {
             lineNumber: 18,
             columnNumber: 11
           }
-        }, movie.Description)), /*#__PURE__*/_reactDefault.default.createElement("button", {
-          onClick: () => {
-            onBackClick(null);
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 20,
-            columnNumber: 9
-          }
-        }, "Back"))
+        }, movie.Description)))
       );
     }
   }
@@ -26722,4 +26712,4 @@ try {
 
 },{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

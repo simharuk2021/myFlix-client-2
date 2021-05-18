@@ -26299,21 +26299,21 @@ try {
           Director: 'David Yates',
           Genre: 'Fantasy',
           Description: 'The adventures of writer Newt Scamander in New York\'s secret community of witches and wizards seventy years before Harry Potter reads his book in school.',
-          ImagePath: '../../img/fantasticbeasts'
+          ImagePath: "../../img/fantasticbeasts"
         }, {
           _id: 2,
           Title: 'The Hobbit: An Unexpected Journey',
           Director: 'Peter Jackson',
           Genre: 'Fantasy',
           Description: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.',
-          ImagePath: '../../img/thehobbit.png'
+          ImagePath: "../../img/thehobbit"
         }, {
           _id: 3,
           Title: 'Avengers: Endgame',
           Director: 'Anthony Russo',
           Genre: 'Action',
           Description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
-          ImagePath: '../../img/avengersendgame.png'
+          ImagePath: "../..img/avengersendgame.png"
         }],
         selectedMovie: null
       };
@@ -26776,4 +26776,4 @@ try {
 
 },{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

@@ -26298,22 +26298,22 @@ try {
           Title: 'Fastastic Beasts and Where to Find Them',
           Director: 'David Yates',
           Genre: 'Fantasy',
-          Description: 'The adventures of writer Newt Scamander in New York\'s secret community of witches and wizards seventy years before Harry Potter reads his book in school.',
-          ImagePath: '../../img/fantasticbeasts'
+          Description: 'desc1...',
+          ImagePath: '...'
         }, {
           _id: 2,
           Title: 'The Hobbit: An Unexpected Journey',
           Director: 'Peter Jackson',
           Genre: 'Fantasy',
           Description: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.',
-          ImagePath: '../../img/thehobbit.png'
+          ImagePath: '...'
         }, {
           _id: 3,
           Title: 'Avengers: Endgame',
           Director: 'Anthony Russo',
           Genre: 'Action',
-          Description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.',
-          ImagePath: '../../img/avengersendgame.png'
+          Description: 'desc3...',
+          ImagePath: '...'
         }],
         selectedMovie: null
       };
@@ -26683,7 +26683,7 @@ try {
             columnNumber: 11
           }
         }, movie.Title)), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          className: "movie-director",
+          className: "movie-description",
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -26698,60 +26698,12 @@ try {
             lineNumber: 18,
             columnNumber: 11
           }
-        }, "Director: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
-          className: "value",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 19,
-            columnNumber: 11
-          }
-        }, movie.Director)), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          className: "movie-genre",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 21,
-            columnNumber: 9
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
-          className: "label",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 22,
-            columnNumber: 11
-          }
-        }, "Genre: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
-          className: "value",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 23,
-            columnNumber: 11
-          }
-        }, movie.Genre)), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          className: "movie-description",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 25,
-            columnNumber: 9
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("span", {
-          className: "label",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 26,
-            columnNumber: 11
-          }
         }, "Description: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
           className: "value",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 27,
+            lineNumber: 19,
             columnNumber: 11
           }
         }, movie.Description)), /*#__PURE__*/_reactDefault.default.createElement("button", {
@@ -26761,7 +26713,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 29,
+            lineNumber: 21,
             columnNumber: 9
           }
         }, "Back"))
@@ -26776,4 +26728,4 @@ try {
 
 },{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

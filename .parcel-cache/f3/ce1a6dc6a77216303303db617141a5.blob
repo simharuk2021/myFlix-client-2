@@ -26781,7 +26781,7 @@ try {
 }
 
 },{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"7FkhL":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "hobbit.cc1a0cf4.jpg"
+module.exports = require('./bundle-url').getBundleURL() + "hobbit.HASH_REF_12a6fd0365082078e9245073cc1a0cf4.jpg"
 },{"./bundle-url":"7Miyj"}],"7Miyj":[function(require,module,exports) {
 "use strict";
 
@@ -26829,9 +26829,9 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 },{}],"6bFhx":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "avengers.d59cc48f.jpg"
+module.exports = require('./bundle-url').getBundleURL() + "avengers.HASH_REF_7fcd622ff145ecbd8ab1e5bbd59cc48f.jpg"
 },{"./bundle-url":"7Miyj"}],"3wicD":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "fantastic.4a211ace.jpg"
+module.exports = require('./bundle-url').getBundleURL() + "fantastic.HASH_REF_812f287d3156ef8648f84d5b4a211ace.jpg"
 },{"./bundle-url":"7Miyj"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

@@ -2,13 +2,11 @@ import React from 'react';
 import axios from 'axios';
 
 import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { RegistrationView } from '../registration-view/registration-view';
 
 // import fantasticbeastsImage from 'url:../../img/fantastic.jpg';
-// import thehobbitImage from 'url:../../img/hobbit.jpg';
-// import avengersendgameImage from 'url:../../img/avengers.jpg';
 
 export class MainView extends React.Component {
   constructor() {
@@ -67,7 +65,7 @@ export class MainView extends React.Component {
     if (!user) return <LoginView onLoggedIn={user =>
       this.onLoggedIn(user)} />;
 
-    if (!register) return <RegsitrationView onRegister={register => this.onRegister(register)} />;
+    if (!register) return <RegistrationView onRegister={register => this.onRegister(register)} />;
 
     //before movies loaded//
     if (movies.length === 0) return <div className="main-view" />;

@@ -1,41 +1,84 @@
 import React from 'react';
+import axios from 'axios';
+
+import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { RegistrationView } from '../registration-view/registration-view';
 
-import fantasticbeastsImage from 'url:../../img/fantastic.jpg';
-import thehobbitImage from 'url:../../img/hobbit.jpg';
-import avengersendgameImage from 'url:../../img/avengers.jpg';
+// import fantasticbeastsImage from 'url:../../img/fantastic.jpg';
+// import thehobbitImage from 'url:../../img/hobbit.jpg';
+// import avengersendgameImage from 'url:../../img/avengers.jpg';
 
 export class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [
-        { _id: 1, Title: 'Fastastic Beasts and Where to Find Them', Director: 'David Yates', Genre: 'Fantasy', Description: 'The adventures of writer Newt Scamander in New York\'s secret community of witches and wizards seventy years before Harry Potter reads his book in school.', ImagePath: fantasticbeastsImage },
-        { _id: 2, Title: 'The Hobbit: An Unexpected Journey', Director: 'Peter Jackson', Genre: 'Fantasy', Description: 'A reluctant Hobbit, Bilbo Baggins, sets out to the Lonely Mountain with a spirited group of dwarves to reclaim their mountain home, and the gold within it from the dragon Smaug.', ImagePath: thehobbitImage },
-        { _id: 3, Title: 'Avengers: Endgame', Director: 'Anthony Russo', Genre: 'Action', Description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos\' actions and restore balance to the universe.', ImagePath: avengersendgameImage }
-      ],
-      selectedMovie: null
+      movies: [],
+      selectedMovie: null,
+      user: null
     };
   }
 
-  setSelectedMovie(newSelectedMovie) {
+  componentDidMount() {
+    axios.get('https://myflix-movie-api-2312.herokuapp.com/movies')
+      .then(response => {
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
+  //when movie clicked, this function updates state of 'selectedMovie' property to that movie//
+  setSelectedMovie(movie) {
     this.setState({
-      selectedMovie: newSelectedMovie
+      selectedMovie: movie
+    });
+  }
+
+  //when user successfully logs in - function updates 'user' property in state to that particular user//
+  onLoggedIn(user) {
+    this.setState({
+      user
+    });
+  }
+
+  //when user successfully regsiters - function updates 'user property in state to that partcular user//
+  onRegsiter(register) {
+    this.setState({
+      register
+    });
+  }
+
+  onBackClick() {
+    this.setState({
+      selectedMovie: null
     });
   }
 
   render() {
-    const { movies, selectedMovie } = this.state;
+    const { movies, selectedMovie, user, register } = this.state;
 
-    if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+    //if no user logged in - LoginView rendered//
+    //if user logs in, user details are passed as prop to LoginView//
+    if (!user) return <LoginView onLoggedIn={user =>
+      this.onLoggedIn(user)} />;
 
+    if (!register) return <RegsitrationView onRegister={register => this.onRegister(register)} />;
+
+    //before movies loaded//
+    if (movies.length === 0) return <div className="main-view" />;
+
+    //if state of 'selectedMovie' not null, that specific movie is returned, otherwise list of all movies returned//
     return (
       <div className="main-view">
         {selectedMovie
           ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
           : movies.map(movie => (
-            <MovieCard key={movie._id} movie={movie} onMovieClick={(movie) => { this.setSelectedMovie(movie) }} />
+            <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie); }} />
           ))
         }
       </div>

@@ -10,8 +10,8 @@ export class MovieView extends React.Component {
 
     return (
       <Card className="movie-view" variant="dark">
-        <Card.Header as="h3">{movie.Title}</Card.Header>
-        <Card.Img className="movie-poster" variant="top" src="holder.js/693x200" />
+        <Card.Header as="h2">{movie.Title}</Card.Header>
+        <Card.Img className="movie-poster" variant="top" src="https://via.placeholder.com/693px200" />
         <Card.Body>
           <Card.Text>
             Description: {movie.Description} <br />

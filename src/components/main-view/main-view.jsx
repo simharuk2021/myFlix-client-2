@@ -71,10 +71,22 @@ export class MainView extends React.Component {
 
     //if no user logged in - LoginView rendered//
     //if user logs in, user details are passed as prop to LoginView//
-    if (register) return <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />;
+    if (register) return (
+      <Row className="justify-content-md-center">
+        <Col md={8}>
+          <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />
+        </Col>
+      </Row>
+    );
 
     if (this.state.user === null)
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />;
+      return (
+        <Row className="justify-content-md-center">
+          <Col md={8}>
+            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+          </Col>
+        </Row>
+      );
 
     //before movies loaded//
     if (movies.length === 0) return <div className="main-view" />;

@@ -9,7 +9,7 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card className="movie-view" variant="dark">
+      <Card className="movie-view" bg="dark" text="white">
         <Card.Header as="h2">{movie.Title}</Card.Header>
         <Card.Img className="movie-poster" variant="top" src="https://via.placeholder.com/693px200" />
         <Card.Body>
@@ -18,7 +18,7 @@ export class MovieView extends React.Component {
             Genre: {movie.Genre.Name} <br />
             Director: {movie.Director.Name} <br />
           </Card.Text>
-          <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
         </Card.Body>
       </Card>
     );

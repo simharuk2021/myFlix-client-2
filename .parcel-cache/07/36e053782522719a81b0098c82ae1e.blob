@@ -1,0 +1,13 @@
+#login-form {
+  background-color: black;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.logo {
+  float: inline-end;
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 40px;
+}

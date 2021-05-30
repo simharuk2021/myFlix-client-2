@@ -14,6 +14,9 @@ export function LoginView(props) {
     /* then call props.onLoggedIn(username) */
     props.onLoggedIn(username);
   };
+  const goToRegister = (e) => {
+    props.toggleRegister(username);
+  };
 
   return (
     <Form>
@@ -26,6 +29,7 @@ export function LoginView(props) {
         <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
       </Form.Group>
       <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+      <Button variant="secondary" type="button" onClick={props.toggleRegister}>Register</Button>
     </Form>
   );
 }

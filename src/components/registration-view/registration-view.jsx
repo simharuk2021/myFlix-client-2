@@ -19,7 +19,7 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Form>
+    <Form id="reg-form">
       <Form.Group controlId="formUsername">
         <Form.Label>Username: </Form.Label>
         <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
@@ -36,8 +36,8 @@ export function RegistrationView(props) {
         <Form.Label>Birthday: </Form.Label>
         <Form.Control type="text" onChange={e => setBirthday(e.target.value)} />
       </Form.Group>
-      <Button variant="primary" type="button" onClick={handleSubmit}>Submit</Button>
-      <Button variant="success" onClick={props.toggleRegister}>Back</Button>
+      <Button variant="outline-warning" type="button" onClick={handleSubmit}>Submit</Button> {''} {''}
+      <Button variant="outline-light" onClick={props.toggleRegister}>Back</Button>
     </Form>
   )
 }

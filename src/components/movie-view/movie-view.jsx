@@ -11,8 +11,8 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Card className="movie-view" bg="dark" text="white">
-        <Card.Header as="h2">{movie.Title}</Card.Header>
+      <Card id="lg-card" className="movie-view">
+        <Card.Header id="movie-title">{movie.Title}</Card.Header>
         <Card.Img className="movie-poster" variant="top" src="https://via.placeholder.com/693px200" />
         <Card.Body>
           <Card.Text>

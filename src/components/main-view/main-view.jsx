@@ -47,7 +47,7 @@ export class MainView extends React.Component {
   }
 
   //when user successfully regsiters - function updates 'user property in state to that partcular user//
-  onRegsister(register) {
+  onRegister(register) {
     this.setState({
       register
     });

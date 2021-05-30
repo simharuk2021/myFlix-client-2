@@ -1,0 +1,22 @@
+$text-font: 'Archivo', sans-serif;
+$text-size: 20px;
+$title-size: 25px;
+$brand-size: 35px;
+$font-style: 400;
+$text-color: white;
+$bg-color: #1E2127;
+$title-font: 'Archivo Black', sans-serif;
+
+#lg-card {
+  background: $bg-color;
+  color: $text-color;
+  font-family: $text-font;
+  border-radius: 15px;
+}
+#movie-title{
+  font-size: $brand-size;
+  font-weight: 400;
+  font-size: $brand-size;
+  text-align: center;
+  font-family: $title-font;
+}

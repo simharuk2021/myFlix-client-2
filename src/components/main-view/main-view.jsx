@@ -74,7 +74,7 @@ export class MainView extends React.Component {
     //if user logs in, user details are passed as prop to LoginView//
     if (register) return (
       <Row className="justify-content-md-center">
-        <Col md={8}>
+        <Col>
           <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />
         </Col>
       </Row>
@@ -83,7 +83,7 @@ export class MainView extends React.Component {
     if (this.state.user === null)
       return (
         <Row className="justify-content-md-center">
-          <Col md={8}>
+          <Col>
             <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
           </Col>
         </Row>

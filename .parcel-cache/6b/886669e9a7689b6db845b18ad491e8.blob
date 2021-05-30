@@ -1,0 +1,9 @@
+#card {
+  background: #1E2127;
+  color: white;
+  font-family: "Archivo", sans-serif;
+}
+
+.card-title {
+  font-size: 400;
+}

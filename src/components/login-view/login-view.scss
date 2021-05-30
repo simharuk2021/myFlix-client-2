@@ -1,0 +1,14 @@
+$text-font: 'Archivo', sans-serif;
+$text-size: 18px;
+$title-size: 21px;
+$brand-size: 40px;
+$font-style: 400;
+$text-color: white;
+$bg-color: #1E2127;
+
+#login-form{
+  background-color: black;
+  font-family: $text-font;
+  font-size: $text-size;
+  color: white;
+}

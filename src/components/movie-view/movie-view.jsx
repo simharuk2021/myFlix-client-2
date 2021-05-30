@@ -18,7 +18,7 @@ export class MovieView extends React.Component {
             Genre: {movie.Genre.Name} <br />
             Director: {movie.Director.Name} <br />
           </Card.Text>
-          <Button variant="outline-light" onClick={() => { onBackClick(null); }}>Back</Button>
+          <Button variant="outline-light" onClick={onBackClick}>Back</Button>
         </Card.Body>
       </Card>
     );
@@ -41,6 +41,6 @@ MovieView.propTypes = {
     }).isRequired,
     ImagePath: PropTypes.string.isRequired
   }).isRequired,
-  onClick: PropTypes.func.isRequired
+  onBackClick: PropTypes.func.isRequired
 };
 

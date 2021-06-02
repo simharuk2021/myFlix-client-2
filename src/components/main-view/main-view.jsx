@@ -24,6 +24,21 @@ export class MainView extends React.Component {
     };
   }
 
+  getMovies(token) {
+    axios.get('https://myflix-movie-api-2312.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}` }
+    })
+      .then(response => {
+        // Assign the result to the state
+        this.setState({
+          movies: response.data
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -61,21 +76,6 @@ export class MainView extends React.Component {
     });
   }
   //need to add Button for log out : onClick={()={this.onLoggedOut()}}
-
-  getMovies(token) {
-    axios.get('https://myflix-movie-api-2312.herokuapp.com/movies', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-      .then(response => {
-        // Assign the result to the state
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   //when user successfully regsiters - function updates 'user property in state to that partcular user//
   onRegister(register) {
@@ -123,20 +123,24 @@ export class MainView extends React.Component {
 
     //if state of 'selectedMovie' not null, that specific movie is returned, otherwise list of all movies returned//
     return (
-      <Row className="main-view justify-content-md-center">
-        {selectedMovie
-          ? (
-            <Col md={10}>
-              <MovieView movie={selectedMovie} onBackClick={() => { this.setSelectedMovie(null); }} />
+      <Router>
+        <Row className="main-view justify-content-md-center">
+          <Route exact path="/" render={() => {
+            return movies.map(m => (
+              <Col md={4} key={m._id}>
+                <MovieCard movie={m} />
+              </Col>
+            ))
+          }} />
+          <Route path="/movies/:movieId" render={({ match }) => {
+            return <Col md={12}>
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
             </Col>
-          )
-          : movies.map(movie => (
-            <Col md={4}>
-              <MovieCard key={movie._id} movie={movie} onMovieClick={() => { this.setSelectedMovie(movie); }} />
-            </Col>
-          ))
-        }
-      </Row>
+          }} />
+
+        </Row>
+      </Router>
     );
   }
 }
+

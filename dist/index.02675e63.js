@@ -26737,6 +26737,87 @@ try {
             lineNumber: 135,
             columnNumber: 11
           }
+        }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
+          exact: true,
+          path: "/genres/:name",
+          render: ({match}) => {
+            if (!movies) return (
+              /*#__PURE__*/_reactDefault.default.createElement("div", {
+                className: "main-view",
+                __self: this,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 142,
+                  columnNumber: 33
+                }
+              })
+            );
+            return (
+              /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+                md: 8,
+                __self: this,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 143,
+                  columnNumber: 20
+                }
+              }, /*#__PURE__*/_reactDefault.default.createElement(GenreView, {
+                genre: movies.find(m => m.Genre.Name === match.params.name).Genre,
+                __self: this,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 144,
+                  columnNumber: 15
+                }
+              }))
+            );
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 141,
+            columnNumber: 11
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
+          path: "/directors/:name",
+          render: ({match}) => {
+            if (!movies) return (
+              /*#__PURE__*/_reactDefault.default.createElement("div", {
+                className: "main-view",
+                __self: this,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 149,
+                  columnNumber: 33
+                }
+              })
+            );
+            return (
+              /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+                md: 8,
+                __self: this,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 150,
+                  columnNumber: 20
+                }
+              }, /*#__PURE__*/_reactDefault.default.createElement(DirectorView, {
+                director: movies.find(m => m.Director.Name === match.params.name).Director,
+                __self: this,
+                __source: {
+                  fileName: _jsxFileName,
+                  lineNumber: 151,
+                  columnNumber: 15
+                }
+              }))
+            );
+          },
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 148,
+            columnNumber: 11
+          }
         })))
       );
     }

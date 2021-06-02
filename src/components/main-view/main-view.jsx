@@ -119,7 +119,7 @@ export class MainView extends React.Component {
       );
 
     //before movies loaded//
-    if (movies.length === 0) return <div className="main-view" />;
+    if (!movies) return <div className="main-view" />;
 
     //if state of 'selectedMovie' not null, that specific movie is returned, otherwise list of all movies returned//
     return (
@@ -132,23 +132,23 @@ export class MainView extends React.Component {
               </Col>
             ))
           }} />
-          <Route path="/movies/:movieId" render={({ match }) => {
-            return <Col md={12}>
-              <MovieView movie={movies.find(m => m._id === match.params.movieId)} />
+          <Route path="/movies/:movieId" render={({ match, history }) => {
+            return <Col md={8}>
+              <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
           <Route exact path="/genres/:name" render={({ match }) => {
             if (!movies) return <div className="main-view" />;
             return <Col md={8}>
-              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} />
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
             </Col>
           }
           } />
           <Route path="/directors/:name" render={({ match }) => {
             if (!movies) return <div className="main-view" />;
             return <Col md={8}>
-              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} />
+              <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />
             </Col>
           }
           } />

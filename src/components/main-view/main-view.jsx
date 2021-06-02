@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { NavbarBrand } from 'react-bootstrap';
 
 // import fantasticbeastsImage from 'url:../../img/fantastic.jpg';

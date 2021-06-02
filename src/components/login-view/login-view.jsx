@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -16,11 +17,17 @@ export function LoginView(props) {
     e.preventDefault();
     console.log(username, password);
     /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
-  };
-  const goToRegister = (e) => {
-    props.toggleRegister(username);
+    axios.post('https://myflix-movie-api-2312.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+      .then(res => {
+        const data = res.data;
+        props.onLoggedIn(data);
+      })
+      .catch(e => {
+        console.log('no such user')
+      });
   };
 
   return (

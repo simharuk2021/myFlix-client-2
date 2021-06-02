@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
@@ -99,46 +99,43 @@ export class MainView extends React.Component {
   render() {
     const { movies, selectedMovie, register } = this.state;
 
-    //if no user logged in - LoginView rendered//
-    //if user logs in, user details are passed as prop to LoginView//
-    if (register) return (
-      <Row className="justify-content-md-center">
-        <Col>
-          <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />
-        </Col>
-      </Row>
-    );
-
-    if (this.state.user === null)
-      return (
-        <Row className="justify-content-md-center">
-          <Col>
-            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
-          </Col>
-        </Row>
-      );
-
-    //before movies loaded//
-    if (!movies) return <div className="main-view" />;
-
-    //if state of 'selectedMovie' not null, that specific movie is returned, otherwise list of all movies returned//
     return (
       <Router>
         <Row className="main-view justify-content-md-center">
           <Route exact path="/" render={() => {
+            if (this.state.user === null)
+              return <Col>
+                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+              </Col>
+            if (!movies) return <div className="main-view" />;
             return movies.map(m => (
               <Col md={4} key={m._id}>
                 <MovieCard movie={m} />
               </Col>
             ))
           }} />
+          <Route path="/register" render={() => {
+            if (this.state.user) return <Redirect to="/" />
+            return <Col>
+              <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />
+            </Col>
+          }} />
           <Route path="/movies/:movieId" render={({ match, history }) => {
+            if (this.state.user === null)
+              return <Col>
+                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+              </Col>
+            if (!movies) return <div className="main-view" />;
             return <Col md={8}>
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
 
           <Route exact path="/genres/:name" render={({ match }) => {
+            if (this.state.user === null)
+              return <Col>
+                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+              </Col>
             if (!movies) return <div className="main-view" />;
             return <Col md={8}>
               <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
@@ -146,6 +143,10 @@ export class MainView extends React.Component {
           }
           } />
           <Route path="/directors/:name" render={({ match }) => {
+            if (this.state.user === null)
+              return <Col>
+                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+              </Col>
             if (!movies) return <div className="main-view" />;
             return <Col md={8}>
               <DirectorView director={movies.find(m => m.Director.Name === match.params.name).Director} onBackClick={() => history.goBack()} />

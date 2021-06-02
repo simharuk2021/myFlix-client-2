@@ -23,15 +23,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('https://myflix-movie-api-2312.herokuapp.com/movies')
-      .then(response => {
-        this.setState({
-          movies: response.data
-        });
-      })
-      .catch(error => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken);
+    }
   }
 
   //when movie clicked, this function updates state of 'selectedMovie' property to that movie//

@@ -51,6 +51,15 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
+    });
+  }
+  //need to add Button for log out : onClick={()={this.onLoggedOut()}}
+
   getMovies(token) {
     axios.get('https://myflix-movie-api-2312.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }

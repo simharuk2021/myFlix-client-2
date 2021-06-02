@@ -97,7 +97,7 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, register } = this.state;
+    const { movies, user } = this.state;
 
     return (
       <Router>
@@ -130,7 +130,6 @@ export class MainView extends React.Component {
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
-
           <Route exact path="/genres/:name" render={({ match }) => {
             if (this.state.user === null)
               return <Col>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
+import { Link } from "react-router-dom";
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -59,7 +61,9 @@ export function RegistrationView(props) {
               <Form.Control type="text" onChange={e => setBirthday(e.target.value)} />
             </Form.Group>
             <Button variant="outline-warning" type="button" onClick={handleSubmit}>Submit</Button> {''} {''}
-            <Button variant="outline-light" onClick={props.toggleRegister}>Back</Button>
+            <Link to={`/`}>
+              <Button variant="outline-light">Back to Login</Button>
+            </Link>
           </Form>
         </Col>
       </Row>

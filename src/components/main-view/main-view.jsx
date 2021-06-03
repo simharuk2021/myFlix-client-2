@@ -6,6 +6,8 @@ import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { DirectorView } from '../director-view/director-view';
+import { GenreView } from '../genre-view/genre-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -130,7 +132,7 @@ export class MainView extends React.Component {
               <MovieView movie={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
             </Col>
           }} />
-          <Route exact path="/genres/:name" render={({ match }) => {
+          <Route exact path="/genres/:name" render={({ match, history }) => {
             if (this.state.user === null)
               return <Col>
                 <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
@@ -141,7 +143,7 @@ export class MainView extends React.Component {
             </Col>
           }
           } />
-          <Route path="/directors/:name" render={({ match }) => {
+          <Route path="/directors/:name" render={({ match, history }) => {
             if (this.state.user === null)
               return <Col>
                 <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
+import { Link } from "react-router-dom";
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
@@ -47,7 +50,9 @@ export function LoginView(props) {
               <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
             </Form.Group>
             <Button variant="outline-warning" type="submit" onClick={handleSubmit}>Submit</Button>{''} {''}
-            <Button variant="outline-light" type="button" onClick={props.toggleRegister}>Register</Button>
+            <Link to={`/register`}>
+              <Button variant="outline-light">Register</Button>
+            </Link>
           </Form>
         </Col>
       </Row>

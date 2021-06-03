@@ -105,7 +105,7 @@ export class MainView extends React.Component {
           <Route exact path="/" render={() => {
             if (this.state.user === null)
               return <Col>
-                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
               </Col>
             if (!movies) return <div className="main-view" />;
             return movies.map(m => (
@@ -117,7 +117,7 @@ export class MainView extends React.Component {
           <Route path="/register" render={() => {
             if (this.state.user) return <Redirect to="/" />
             return <Col>
-              <RegistrationView onRegister={register => this.onRegister(register)} toggleRegister={this.toggleRegister} />
+              <RegistrationView onRegister={register => this.onRegister(register)} />
             </Col>
           }} />
           <Route path="/movies/:movieId" render={({ match, history }) => {

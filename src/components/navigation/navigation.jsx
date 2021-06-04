@@ -18,17 +18,20 @@ export class Navigation extends React.Component {
       <Col md={12}>
         <Navbar className="d-flex flex-md-grow-11" bg="light" sticky="top">
           <Navbar.Brand href="#home">
-            <img
-              src="/logo.svg"
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-            />{''}myFlix
+            <Link to={'/'}>
+              <img
+                src="/logo.svg"
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              /></Link>{''}   myFlix
             </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Signed in as: <a href="#login">{user.Username}</a>
+              <Link to={`/users/${user.Username}`}>
+                <Button variant="link" >Profile: {user.Username}{''}</Button>
+              </Link>
             </Navbar.Text>
           </Navbar.Collapse>
           <Button variant="outline-warning" onClick={onLoggedOut}>Sign Out</Button>

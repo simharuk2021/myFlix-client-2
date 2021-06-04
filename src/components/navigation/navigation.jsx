@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import Navbar from 'react-bootstrap/Navbar';
@@ -12,7 +12,8 @@ import { Link } from "react-router-dom";
 export class Navigation extends React.Component {
 
   render() {
-    const { user, onLoggedOut } = this.props;
+    let user = localStorage.getItem("user");
+    const { onLoggedOut } = this.props;
 
     return (
       <Col md={12}>
@@ -29,8 +30,8 @@ export class Navigation extends React.Component {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              <Link to={`/users/${user.Username}`}>
-                <Button variant="link" >Profile: {user.Username}{''}</Button>
+              <Link to={`/users/${user}`}>
+                <Button variant="link" >Profile: {this.state.user}{''}</Button>
               </Link>
             </Navbar.Text>
           </Navbar.Collapse>

@@ -8,9 +8,13 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
+import { Navigation } from '../navigation/navigation';
+
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
+
 import { NavbarBrand } from 'react-bootstrap';
 
 // import fantasticbeastsImage from 'url:../../img/fantastic.jpg';
@@ -135,12 +139,26 @@ export class MainView extends React.Component {
           <Route exact path="/genres/:name" render={({ match, history }) => {
             if (this.state.user === null)
               return <Col>
-                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
+                <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
               </Col>
             if (!movies) return <div className="main-view" />;
-            return <Col md={8}>
-              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
-            </Col>
+            return (
+              <>
+                <Container fluid className="d-flex flex-column">
+                  <Row>
+                    <Col md={12}>
+                      <Navigation user={user} onLoggedOut={(user) => this.onLoggedOut(user)} />
+                    </Col>
+                  </Row>
+                  {''}
+                  <Row className="justify-content-md-center">
+                    <Col md={5}>
+                      <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+                    </Col>
+                  </Row>
+                </Container>
+              </>
+            )
           }
           } />
           <Route path="/directors/:name" render={({ match, history }) => {
@@ -156,7 +174,7 @@ export class MainView extends React.Component {
           } />
 
         </Row>
-      </Router>
+      </Router >
     );
   }
 }

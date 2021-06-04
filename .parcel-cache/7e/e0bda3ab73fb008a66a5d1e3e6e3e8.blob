@@ -47079,7 +47079,7 @@ try {
   var _jsxFileName = "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\navigation\\navigation.jsx";
   class Navigation extends _reactDefault.default.Component {
     render() {
-      let user = localStorage.getItem("user");
+      let user = this.state;
       const {onLoggedOut} = this.props;
       return (
         /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
@@ -47186,4 +47186,4 @@ try {
 
 },{"react":"3b2NM","axios":"7rA65","react-bootstrap/Navbar":"3qLFd","react-bootstrap/Col":"2D0r8","react-bootstrap/Button":"1ru0l","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

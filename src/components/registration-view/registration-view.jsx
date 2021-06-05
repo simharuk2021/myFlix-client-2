@@ -40,7 +40,7 @@ export function RegistrationView(props) {
 
   return (
     <div id="reg-page">
-      <h3 className="logo">myFlix</h3>
+      {/* <h3 className="logo">myFlix</h3> */}
       <Row className="justify-content-md-center">
         <Col md={6}>
           <Form id="reg-form">

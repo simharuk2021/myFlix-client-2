@@ -68,6 +68,7 @@ export class MainView extends React.Component {
         user: localStorage.getItem('user')
       });
       this.getMovies(accessToken);
+      this.getUsers(accessToken);
     }
   }
 
@@ -158,23 +159,9 @@ export class MainView extends React.Component {
                 <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
               </Col>
             if (!movies) return <div className="main-view" />;
-            return (
-              <>
-                <Container fluid className="d-flex flex-column">
-                  <Row>
-                    <Col md={12}>
-                      <Navigation user={user} onLoggedOut={(user) => this.onLoggedOut(user)} />
-                    </Col>
-                  </Row>
-                  {''}
-                  <Row className="justify-content-md-center">
-                    <Col md={5}>
-                      <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
-                    </Col>
-                  </Row>
-                </Container>
-              </>
-            )
+            return <Col md={5}>
+              <GenreView genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+            </Col>
           }
           } />
           <Route path="/directors/:name" render={({ match, history }) => {

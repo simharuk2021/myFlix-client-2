@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 import { Link } from "react-router-dom";
 
@@ -18,20 +21,16 @@ export class MovieView extends React.Component {
         <Card.Img className="movie-poster" variant="top" src="https://via.placeholder.com/693px200" />
         <Card.Body>
           <Card.Text>
-            Description: {movie.Description} <br />
-            Genre: {movie.Genre.Name} <br />
-            Director: {movie.Director.Name} <br />
+            Description: {movie.Description}
+            <br />
+            Genre: <Link to={`/genres/${movie.Genre.Name}`} id="link">{movie.Genre.Name}</Link>
+            <br />
+            Director:  <Link to={`/directors/${movie.Director.Name}`} id="link">{movie.Director.Name}</Link>
+            <br />
           </Card.Text>
-
-          <Link to={`/directors/${movie.Director.Name}`}>
-            <Button variant="link">Director Details</Button>
-          </Link>
-          <Link to={`/genres/${movie.Genre.Name}`}>
-            <Button variant="link">Genre Details  </Button>
-          </Link>
-          <Button variant="outline-light" onClick={onBackClick}>Back</Button>
-        </Card.Body>
-      </Card>
+          <Button id="backButton" variant="outline-light" onClick={onBackClick}>Back</Button>
+        </Card.Body >
+      </Card >
     );
   }
 }

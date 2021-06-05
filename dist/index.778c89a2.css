@@ -29,17 +29,34 @@
   color: white;
   font-family: "Archivo", sans-serif;
   border-radius: 10px;
+  font-size: 18px;
 }
 
 #card-title {
   font-size: 40px;
   font-weight: 600;
   font-size: 21px;
+  font-family: "Archivo", sans-serif;
+}
+
+#heart-img:hover {
+  height: 22px;
+  width: auto;
+  float: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+#openMovie {
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
 }
 #lg-card {
   background: #1E2127;
   color: white;
   font-family: "Archivo", sans-serif;
+  font-size: 20px;
   border-radius: 15px;
 }
 
@@ -51,7 +68,60 @@
   font-family: "Archivo Black", sans-serif;
 }
 
+#link {
+  color: #ffc107 !important;
+}
 
+#backButton {
+  font-family: "Archivo", sans-serif;
+  font-size: 20px;
+}
+
+
+#userForm {
+  color: white;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+}
+
+h4 {
+  color: white;
+  font-family: "Archivo", sans-serif;
+  font-size: 21px;
+}
+
+#favoriteMovies {
+  color: white;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+}
+#myFlixNav {
+  background-color: black;
+  color: #ffc107;
+}
+
+#appName {
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+#link {
+  color: #ffc107 !important;
+  font-size: 18px;
+  font-family: "Archivo", sans-serif;
+}
+
+#toggle {
+  color: #ffc107 !important;
+}
+
+#logout {
+  color: #ffc107 !important;
+  font-size: 18px;
+  font-family: "Archivo", sans-serif;
+}
 .app-container {
   background-color: black;
 }

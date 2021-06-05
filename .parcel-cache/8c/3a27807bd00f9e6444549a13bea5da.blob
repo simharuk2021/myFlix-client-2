@@ -1,0 +1,21 @@
+#card {
+  background: #1E2127;
+  color: white;
+  font-family: "Archivo", sans-serif;
+  border-radius: 10px;
+}
+
+#card-title {
+  font-size: 40px;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+#heart-img:hover {
+  height: 22px;
+  width: auto;
+  float: right;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}

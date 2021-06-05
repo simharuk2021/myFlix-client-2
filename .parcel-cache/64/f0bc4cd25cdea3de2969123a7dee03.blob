@@ -1,0 +1,14 @@
+#myFlixNav {
+  background-color: black;
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 30px;
+}
+
+#appName {
+  color: #ffc107;
+}
+
+#link {
+  color: #ffc107 !important;
+}

@@ -11,6 +11,7 @@ $title-font: 'Archivo Black', sans-serif;
   background: $bg-color;
   color: $text-color;
   font-family: $text-font;
+  font-size: $text-size;
   border-radius: 15px;
 }
 #movie-title{
@@ -19,4 +20,12 @@ $title-font: 'Archivo Black', sans-serif;
   font-size: $brand-size;
   text-align: center;
   font-family: $title-font;
+}
+
+#link{
+  color: #ffc107 !important;
+}
+#backButton{
+font-family: $text-font;
+font-size: $text-size;
 }

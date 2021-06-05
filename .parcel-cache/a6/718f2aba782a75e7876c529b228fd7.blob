@@ -26819,26 +26819,25 @@ try {
                 }
               })
             );
-            return (
-              /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
-                md: 5,
-                __self: this,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 162,
-                  columnNumber: 20
-                }
-              }, /*#__PURE__*/_reactDefault.default.createElement(_genreViewGenreView.GenreView, {
-                genre: movies.find(m => m.Genre.Name === match.params.name).Genre,
-                onBackClick: () => history.goBack(),
-                __self: this,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 163,
-                  columnNumber: 15
-                }
-              }))
-            );
+            return;
+            /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+              md: 5,
+              __self: this,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 163,
+                columnNumber: 13
+              }
+            }, /*#__PURE__*/_reactDefault.default.createElement(_genreViewGenreView.GenreView, {
+              genre: movies.find(m => m.Genre.Name === match.params.name).Genre,
+              onBackClick: () => history.goBack(),
+              __self: this,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 164,
+                columnNumber: 15
+              }
+            }));
           },
           __self: this,
           __source: {
@@ -26854,7 +26853,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 169,
+                  lineNumber: 171,
                   columnNumber: 22
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
@@ -26863,7 +26862,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 170,
+                  lineNumber: 172,
                   columnNumber: 17
                 }
               }))
@@ -26874,7 +26873,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 172,
+                  lineNumber: 174,
                   columnNumber: 33
                 }
               })
@@ -26885,7 +26884,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 173,
+                  lineNumber: 175,
                   columnNumber: 20
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_directorViewDirectorView.DirectorView, {
@@ -26894,7 +26893,7 @@ try {
                 __self: this,
                 __source: {
                   fileName: _jsxFileName,
-                  lineNumber: 174,
+                  lineNumber: 176,
                   columnNumber: 15
                 }
               }))
@@ -26903,7 +26902,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 167,
+            lineNumber: 169,
             columnNumber: 11
           }
         })))
@@ -47159,4 +47158,4 @@ try {
 
 },{"react":"3b2NM","axios":"7rA65","react-bootstrap/Navbar":"3qLFd","react-bootstrap/Col":"2D0r8","react-bootstrap/Button":"1ru0l","react-router-dom":"1PMSK","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

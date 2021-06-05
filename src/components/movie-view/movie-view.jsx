@@ -22,11 +22,12 @@ export class MovieView extends React.Component {
             Genre: {movie.Genre.Name} <br />
             Director: {movie.Director.Name} <br />
           </Card.Text>
+
           <Link to={`/directors/${movie.Director.Name}`}>
             <Button variant="link">Director Details</Button>
           </Link>
           <Link to={`/genres/${movie.Genre.Name}`}>
-            <Button variant="link">Genre Details</Button>
+            <Button variant="link">Genre Details  </Button>
           </Link>
           <Button variant="outline-light" onClick={onBackClick}>Back</Button>
         </Card.Body>

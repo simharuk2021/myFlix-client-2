@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 // import moment from 'moment';
@@ -6,11 +6,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 import { Card, FormControl } from 'react-bootstrap';
-import Container from "react-bootstrap/Container";
 import Button from 'react-bootstrap/Button';
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+
+import './profile-view.scss';
 
 export class ProfileView extends React.Component {
   constructor(props) {
@@ -32,7 +33,9 @@ export class ProfileView extends React.Component {
     this.getUser(accessToken);
   }
   getUser(token) {
-    axios.get('https://myflix-movie-api-2312.herokuapp.com/users/' + localStorage.getItem("user"), {
+    console.log(localStorage.getItem("user"));
+    axios.get("https://myflix-movie-api-2312.herokuapp.com/users/" +
+      localStorage.getItem("user"), {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(response => {
@@ -41,24 +44,26 @@ export class ProfileView extends React.Component {
           // Password: response.data.Password,
           Email: response.data.Email,
           Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies
+          FavoriteMovies: response.data.FavoriteMovies,
         });
       })
-      .catch(function (err) {
-        console.log(err);
+      .catch(function (error) {
+        console.log(error);
       });
   }
   removeFavorite(movie) {
-    const token = local.Storage.getItem("token");
-    const url = "https://myflix-movie-api-2312.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
-
-    axios.delete(url, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
+    const token = localStorage.getItem("token");
+    axios
+      .delete("https://myflix-movie-api-2312.herokuapp.com/users/" +
+        localStorage.getItem("user") + "/movies/" + movie._id,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        })
       .then((response) => {
         console.log(response);
         this.componentDidMount();
-        alert(movie.Title + "has been removed from Favorites.");
+        // location.reload();
+        alert(movie.Title + " has been removed from your Favorites.");
       });
   }
   handleDelete() {
@@ -125,7 +130,7 @@ export class ProfileView extends React.Component {
       isValid = false;
     }
     if (this.state.birthday === '') {
-      BirthdateError.birthdayEmpty = "Please enter your birthdate.";
+      BirthdayError.birthdayEmpty = "Please enter your birthday.";
       isValid = false;
     }
     this.setState({
@@ -147,17 +152,18 @@ export class ProfileView extends React.Component {
   render() {
     const { movies } = this.props;
     const { UsernameError, EmailError, PasswordError, BirthdayError } = this.state;
-    const FavoriteMoviesList = movies.filter((movie) => {
+    const FavoriteMovieList = movies.filter(movie => {
       return this.state.FavoriteMovies.includes(movie._id);
     });
 
     return (
-      <div style={{ display: "flex" }}>
-        <Container>
-          <Row>
-            <Col md={5}>
+      <div className="flexWrap">
+        <Row>
+          <Col md={6}>
+            <div id="userForm">
+
               <Form className="profile-details-form">
-                <h1>User Profile:</h1>
+                <h4>User Profile:</h4>
                 <Form.Group controlId="formUsername">
                   <Form.Label>Username:</Form.Label>
                   <Form.Control type="text" name="Username" value={this.state.Username} onChange={(e) => this.handleChange(e)} placeholder="Change Username" />
@@ -168,6 +174,9 @@ export class ProfileView extends React.Component {
                       </div>
                     );
                   })}
+                  <Form.Text id="usernameHelpBlock" muted>
+                    Username must be a minimum of 5 characters
+                  </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formPassword">
                   <Form.Label>Password: </Form.Label>
@@ -179,10 +188,13 @@ export class ProfileView extends React.Component {
                       </div>
                     );
                   })}
+                  <Form.Text id="passwordHelpBlock" muted>
+                    Password must be a minimum of 4 characters
+                  </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formEmail">
                   <Form.Label>Email:</Form.Label>
-                  <Form.Control type="text" name="Email" value={this.state.Email} onChange={(e) => this.handleChange(e)} placeholder="Update Email" />
+                  <Form.Control type="text" name="Email" value={this.state.Email} onChange={(e) => this.handleChange(e)} placeholder="john.doe@email.com" />
                   {Object.keys(EmailError).map((key) => {
                     return (
                       <div key={key} style={{ color: "red" }}>
@@ -202,15 +214,50 @@ export class ProfileView extends React.Component {
                     );
                   })}
                 </Form.Group>
+                <Link to={'`/users/${this.state.Username}`'}>
+                  <Button variant="outline-warning" type="link" block onClick={(e) => this.handleUpdate(e)}>Save Changes</Button>
+                </Link>
               </Form>
+
+            </div>
+          </Col>
+
+          <div id="favoriteMovies">
+            <Col md={4}>
+              <Card.Title as="h4">Your Favorite Movies:</Card.Title>
+              {FavoriteMovieList.map((movie) => {
+                return (
+                  <Col md={3} key={movie._id}>
+                    <Card className='mb-20'>
+                      <Card.Img variant="top" src={movie.ImagePath} />
+                      <Card.Body>
+                        <Link to={`/movies/${movie._id}`}>
+                          <Card.Text as='h6'>{movie.Title}</Card.Text>
+                        </Link>
+                      </Card.Body>
+                    </Card>
+                    <Button variant="outline-warning" onClick={() => this.removeFavorite(movie)}>
+                      Remove
+                      </Button>
+                  </Col>
+                );
+
+              })}
             </Col>
-          </Row>
-        </Container>
-      </div>
-    )
+          </div>
+
+        </Row>
+        <div id="delete-account">
+          <br />
+          <Button variant="outline-warning" onClick={() => this.handleDelete()}>Delete Account</Button>
+        </div>
+      </div >
+    );
   }
-
-
 }
+
+ProfileView.propType = {
+  movies: PropTypes.array.isRequired
+};
 
 

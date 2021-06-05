@@ -11,9 +11,25 @@ $bg-color: #1E2127;
   color: $text-color;
   font-family: $text-font;
   border-radius: 10px;
+  font-size: $text-size;
 }
 #card-title{
   font-size: $brand-size;
   font-weight: 600;
   font-size: $title-size;
+  font-family: $text-font;
+}
+
+#heart-img:hover{
+height: 22px;
+width: auto;
+float: right;
+display: flex;
+align-items: flex-end;
+justify-content:flex-end;
+}
+
+#openMovie{
+font-family: $text-font;
+font-size: $text-size;
 }

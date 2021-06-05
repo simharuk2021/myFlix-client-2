@@ -1,0 +1,110 @@
+var helpers = require("../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "ProfileView", function () {
+    return ProfileView;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  require('prop-types');
+  var _axios = require("axios");
+  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
+  require('moment');
+  require("react-router-dom");
+  require('react-bootstrap');
+  require("react-bootstrap/Container");
+  require('react-bootstrap/Button');
+  require("react-bootstrap/Form");
+  require("react-bootstrap/Col");
+  require("react-bootstrap/Row");
+  class ProfileView extends _reactDefault.default.Component {
+    constructor(props) {
+      this.state = {
+        Username: "",
+        Password: "",
+        Email: "",
+        Birthday: "",
+        FavoriteMovies: "",
+        UsernameError: "",
+        EmailError: ""
+      };
+    }
+    componentDidMount() {
+      let accessToken = localStorage.getItem("token");
+      this.getUser(accessToken);
+    }
+    getUser(token) {
+      _axiosDefault.default.get('https://myflix-movie-api-2312.herokuapp.com/users/' + localStorage.getItem("user"), {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(response => {
+        this.setState({
+          Username: response.data.Username,
+          Password: response.data.Password,
+          Email: response.data.Email,
+          Birthday: response.data.Birthday,
+          FavoriteMovies: response.data.FavoriteMovies
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+    removeFavorite(movie) {
+      const token = local.Storage.getItem("token");
+      const url = "https://myflix-movie-api-2312.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id;
+      _axiosDefault.default.delete(url, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(response => {
+        console.log(response);
+        this.componentDidMount();
+        alert(movie.Title + "has been removed from Favorites.");
+      });
+    }
+    handleDelete() {
+      const token = localStorage.getItem("token");
+      const user = localStorage.getItem("user");
+      _axiosDefault.default.delete('https://myflix-movie-api-2312.herokuapp.com/users/${user}', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }).then(() => {
+        alert(user + "account has been deleted.");
+        localStorage.removeItem("user");
+        localStorage.removeItem("token");
+        window.location.pathname = "/";
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+    handleUpdate(e) {
+      let token = localStorage.getItem("token");
+      let user = localStorage.getItem("user");
+      console.log(this.state);
+      let setisValid = this.formValidation();
+      if (setisValid) {
+        _axiosDefault.default.put('https://myflix-movie-api-2312.herokuapp.com/users/${user}', {
+          Username: this.state.Username,
+          Password: this.state.Password,
+          Email: this.state.Password,
+          Email: this.state.Email,
+          Birthday: this.state.Birthday
+        }, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+      }
+    }
+  }
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

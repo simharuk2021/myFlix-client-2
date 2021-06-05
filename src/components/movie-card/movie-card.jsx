@@ -36,7 +36,7 @@ export class MovieCard extends React.Component {
           <Link to={`/movies/${movie._id}`}>
             <Button id="openMovie" variant="outline-light">Open</Button>
           </Link>
-          <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a">
+          <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a">
             <img id="heart-img"
               alt=""
               src={heartImg}

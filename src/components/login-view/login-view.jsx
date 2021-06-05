@@ -36,7 +36,7 @@ export function LoginView(props) {
   return (
 
     <div id="login-page">
-      <h3 className="logo">myFlix</h3>
+      {/* <h3 className="logo">myFlix</h3> */}
 
       <Row className="justify-content-md-center">
         <Col md={6}>

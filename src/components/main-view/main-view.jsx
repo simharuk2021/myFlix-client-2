@@ -16,11 +16,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-import Container from 'react-bootstrap/Container';
+import './main-view.scss';
 
 import { Navbar, NavbarBrand } from 'react-bootstrap';
 
 // import fantasticbeastsImage from 'url:../../img/fantastic.jpg';
+import videoLogo from 'url:../../img/video.svg';
 
 export class MainView extends React.Component {
   constructor() {
@@ -128,30 +129,38 @@ export class MainView extends React.Component {
     return (
       <Router>
         <div className="main-view justify-content-md-center">
-          <Navbar className="mb-5" bg="dark" variant="dark">
-            <Navbar.Brand className="navbar-brand">myFlix
+          <Navbar className="mb-5" id="myFlixNav" variant="dark" expand="lg"
+            sticky="top">
+            <Navbar.Brand id="appName" href="#home">
+              <img
+                alt=""
+                src={videoLogo}
+                width="50"
+                height="50"
+                className="d-inline-block align-top"
+              />{' '}myFlix
             </Navbar.Brand>
-            <Navbar.Toggle />
-            <Navbar.Collapse className="justify-content-end">
+            <Navbar.Toggle id="toggle" />
+            <Navbar.Collapse id="toggle" className="justify-content-end">
               {!user ? (
                 <ul>
                   <Link to={'/'}>
-                    <Button variant="link">Log In</Button>
-                  </Link>
+                    <Button id="link" variant="link">Log In</Button>
+                  </Link> {''}
                   <Link to={'/register'}>
-                    <Button variant="link">Register</Button>
+                    <Button id="link" variant="link">Register</Button>
                   </Link>
                 </ul>
               ) : (
                 <ul>
                   <Link to={'/users/${users}'}>
-                    <Button variant="link">My Account</Button>
+                    <Button id="link" variant="link">My Account</Button>
                   </Link>
                   <Link to={'/'}>
-                    <Button variant="link">Movies</Button>
+                    <Button id="link" variant="link">Movies</Button>
                   </Link>{''}
                   <Link to={'/'}>
-                    <Button variant="outline-warning" onClick={() => this.onLoggedOut()}>Log Out</Button>
+                    <Button id="logout" variant="outline-warning" onClick={() => this.onLoggedOut()}>Log Out</Button>
                   </Link>
                 </ul>
               )}
@@ -211,7 +220,7 @@ export class MainView extends React.Component {
             } />
             <Route exact path="/users/:username" render={({ history }) => {
               if (this.state.user === null)
-                return <Col>
+                return <Col md={12}>
                   <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} toggleRegister={this.toggleRegister} />
                 </Col>
               if (!movies) return <div className="main-view" />;

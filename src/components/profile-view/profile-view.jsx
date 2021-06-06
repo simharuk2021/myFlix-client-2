@@ -11,6 +11,8 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+import trashImg from 'url:../../img/trash.svg';
+
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
@@ -58,14 +60,14 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     axios
       .delete("https://myflix-movie-api-2312.herokuapp.com/users/" +
-        localStorage.getItem("user") + "/movies/" + movie._id,
+        localStorage.getItem("user") + "/favorites/" + movie._id,
         {
           headers: { Authorization: `Bearer ${token}` },
         })
       .then((response) => {
         console.log(response);
         this.componentDidMount();
-        // location.reload();
+        location.reload();
         alert(movie.Title + " has been removed from your Favorites.");
       });
   }
@@ -225,35 +227,46 @@ export class ProfileView extends React.Component {
             </div>
           </Col>
 
-          <div id="favoriteMovies">
-            <Col md={4}>
-              <Card.Title as="h4">Your Favorite Movies:</Card.Title>
+
+
+
+          <Col md={6}>
+            <div id="favoriteMovies">
+
+              <h4>Your Favorite Movies:</h4>
               {FavoriteMovieList.map((movie) => {
                 return (
-                  <Col md={3} key={movie._id}>
-                    <Card className='mb-20'>
-                      <Card.Img variant="top" src={movie.ImagePath} />
-                      <Card.Body>
-                        <Link to={`/movies/${movie._id}`}>
-                          <Card.Text as='h6'>{movie.Title}</Card.Text>
-                        </Link>
-                      </Card.Body>
-                    </Card>
-                    <Button variant="outline-warning" onClick={() => this.removeFavorite(movie)}>
-                      Remove
-                      </Button>
-                  </Col>
+                  <Card id="card" className="movie-card mb-2" text="white">
+                    <Card.Img variant="top" src={movie.ImagePath} />
+                    <Card.Body>
+                      <Link to={`/movies/${movie._id}`} id="link">
+                        {movie.Title}
+                      </Link>
+                      <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a">
+                        <img id="trash-img"
+                          alt=""
+                          src={trashImg}
+                          width="20"
+                          height="20"
+                          fluid="true"
+                          onClick={() => this.removeFavorite(movie)}
+                        />
+                      </button>
+
+                    </Card.Body>
+                  </Card>
                 );
 
               })}
-            </Col>
-          </div>
+
+            </div>
+          </Col>
 
         </Row>
-        <div id="delete-account">
+        {/* <div id="delete-account">
           <br />
           <Button variant="outline-warning" onClick={() => this.handleDelete()}>Delete Account</Button>
-        </div>
+        </div> */}
       </div >
     );
   }

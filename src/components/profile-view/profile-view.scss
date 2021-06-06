@@ -17,10 +17,26 @@ $title-font: 'Archivo Black', sans-serif;
 h4{
   color: $text-color;
   font-family: $text-font;
-  font-size: $title-size;
+  font-size: $text-size;
 }
 #favoriteMovies{
   color: $text-color;
   font-family: $text-font;
   font-size: $text-size;
+  display:inline;
+}
+
+#link{
+  color: #ffc107;
+  font-size: 18px;
+  font-family: $text-font;
+}
+
+#trash-img:hover{
+height: 22px;
+width: auto;
+float: right;
+display: flex;
+align-items: flex-end;
+justify-content:flex-end;
 }

@@ -47486,6 +47486,8 @@ try {
   var _reactBootstrapColDefault = _parcelHelpers.interopDefault(_reactBootstrapCol);
   var _reactBootstrapRow = require("react-bootstrap/Row");
   var _reactBootstrapRowDefault = _parcelHelpers.interopDefault(_reactBootstrapRow);
+  var _urlImgTrashSvg = require('url:../../img/trash.svg');
+  var _urlImgTrashSvgDefault = _parcelHelpers.interopDefault(_urlImgTrashSvg);
   require('./profile-view.scss');
   var _jsxFileName = "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\profile-view\\profile-view.jsx";
   class ProfileView extends _reactDefault.default.Component {
@@ -47530,14 +47532,14 @@ try {
     }
     removeFavorite(movie) {
       const token = localStorage.getItem("token");
-      _axiosDefault.default.delete("https://myflix-movie-api-2312.herokuapp.com/users/" + localStorage.getItem("user") + "/movies/" + movie._id, {
+      _axiosDefault.default.delete("https://myflix-movie-api-2312.herokuapp.com/users/" + localStorage.getItem("user") + "/favorites/" + movie._id, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       }).then(response => {
         console.log(response);
         this.componentDidMount();
-        // location.reload();
+        location.reload();
         alert(movie.Title + " has been removed from your Favorites.");
       });
     }
@@ -47632,14 +47634,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 163,
+            lineNumber: 165,
             columnNumber: 7
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapRowDefault.default, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 164,
+            lineNumber: 166,
             columnNumber: 9
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
@@ -47647,7 +47649,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 165,
+            lineNumber: 167,
             columnNumber: 11
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -47655,7 +47657,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 166,
+            lineNumber: 168,
             columnNumber: 13
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default, {
@@ -47663,14 +47665,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 168,
+            lineNumber: 170,
             columnNumber: 15
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 169,
+            lineNumber: 171,
             columnNumber: 17
           }
         }, "User Profile:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -47678,14 +47680,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 170,
+            lineNumber: 172,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 171,
+            lineNumber: 173,
             columnNumber: 19
           }
         }, "Username:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -47697,7 +47699,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 172,
+            lineNumber: 174,
             columnNumber: 19
           }
         }), Object.keys(UsernameError).map(key => {
@@ -47710,7 +47712,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 175,
+                lineNumber: 177,
                 columnNumber: 23
               }
             }, UsernameError[key])
@@ -47721,7 +47723,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 180,
+            lineNumber: 182,
             columnNumber: 19
           }
         }, "Username must be a minimum of 5 characters")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -47729,14 +47731,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 184,
+            lineNumber: 186,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 185,
+            lineNumber: 187,
             columnNumber: 19
           }
         }, "Password: "), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.FormControl, {
@@ -47748,7 +47750,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 186,
+            lineNumber: 188,
             columnNumber: 19
           }
         }), Object.keys(PasswordError).map(key => {
@@ -47761,7 +47763,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 189,
+                lineNumber: 191,
                 columnNumber: 23
               }
             }, PasswordError[key])
@@ -47772,7 +47774,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 194,
+            lineNumber: 196,
             columnNumber: 19
           }
         }, "Password must be a minimum of 4 characters")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Group, {
@@ -47780,14 +47782,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 198,
+            lineNumber: 200,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 199,
+            lineNumber: 201,
             columnNumber: 19
           }
         }, "Email:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -47799,7 +47801,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 200,
+            lineNumber: 202,
             columnNumber: 19
           }
         }), Object.keys(EmailError).map(key => {
@@ -47812,7 +47814,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 203,
+                lineNumber: 205,
                 columnNumber: 23
               }
             }, EmailError[key])
@@ -47822,14 +47824,14 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 209,
+            lineNumber: 211,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Label, {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 210,
+            lineNumber: 212,
             columnNumber: 19
           }
         }, "Brithday:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapFormDefault.default.Control, {
@@ -47841,7 +47843,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 211,
+            lineNumber: 213,
             columnNumber: 19
           }
         }), Object.keys(BirthdayError).map(key => {
@@ -47854,7 +47856,7 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 214,
+                lineNumber: 216,
                 columnNumber: 23
               }
             }, BirthdayError[key])
@@ -47864,7 +47866,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 220,
+            lineNumber: 222,
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
@@ -47875,51 +47877,43 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 221,
+            lineNumber: 223,
             columnNumber: 19
           }
-        }, "Save Changes"))))), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, "Save Changes"))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+          md: 6,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 233,
+            columnNumber: 11
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
           id: "favoriteMovies",
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 228,
-            columnNumber: 11
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
-          md: 4,
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 229,
+            lineNumber: 234,
             columnNumber: 13
           }
-        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Title, {
-          as: "h4",
+        }, /*#__PURE__*/_reactDefault.default.createElement("h4", {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 230,
+            lineNumber: 236,
             columnNumber: 15
           }
         }, "Your Favorite Movies:"), FavoriteMovieList.map(movie => {
           return (
-            /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
-              md: 3,
-              key: movie._id,
+            /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card, {
+              id: "card",
+              className: "movie-card mb-2",
+              text: "white",
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 233,
+                lineNumber: 239,
                 columnNumber: 19
-              }
-            }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card, {
-              className: "mb-20",
-              __self: this,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 234,
-                columnNumber: 21
               }
             }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Img, {
               variant: "top",
@@ -47927,68 +47921,51 @@ try {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 235,
-                columnNumber: 23
+                lineNumber: 240,
+                columnNumber: 21
               }
             }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Body, {
               __self: this,
               __source: {
                 fileName: _jsxFileName,
-                lineNumber: 236,
-                columnNumber: 23
+                lineNumber: 241,
+                columnNumber: 21
               }
             }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
               to: `/movies/${movie._id}`,
-              __self: this,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 237,
-                columnNumber: 25
-              }
-            }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Text, {
-              as: "h6",
-              __self: this,
-              __source: {
-                fileName: _jsxFileName,
-                lineNumber: 238,
-                columnNumber: 27
-              }
-            }, movie.Title)))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
-              variant: "outline-warning",
-              onClick: () => this.removeFavorite(movie),
+              id: "link",
               __self: this,
               __source: {
                 fileName: _jsxFileName,
                 lineNumber: 242,
-                columnNumber: 21
+                columnNumber: 23
               }
-            }, "Remove"))
+            }, movie.Title), /*#__PURE__*/_reactDefault.default.createElement("button", {
+              type: "button",
+              className: "btn btn-white btn-rounded mr-md-3 z-depth-1a",
+              __self: this,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 245,
+                columnNumber: 23
+              }
+            }, /*#__PURE__*/_reactDefault.default.createElement("img", {
+              id: "trash-img",
+              alt: "",
+              src: _urlImgTrashSvgDefault.default,
+              width: "20",
+              height: "20",
+              fluid: "true",
+              onClick: () => this.removeFavorite(movie),
+              __self: this,
+              __source: {
+                fileName: _jsxFileName,
+                lineNumber: 246,
+                columnNumber: 25
+              }
+            }))))
           );
-        })))), /*#__PURE__*/_reactDefault.default.createElement("div", {
-          id: "delete-account",
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 253,
-            columnNumber: 9
-          }
-        }, /*#__PURE__*/_reactDefault.default.createElement("br", {
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 254,
-            columnNumber: 11
-          }
-        }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapButtonDefault.default, {
-          variant: "outline-warning",
-          onClick: () => this.handleDelete(),
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 255,
-            columnNumber: 11
-          }
-        }, "Delete Account")))
+        })))))
       );
     }
   }
@@ -48001,7 +47978,9 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","prop-types":"4dfy5","axios":"7rA65","react-router-dom":"1PMSK","react-bootstrap":"4n7hB","react-bootstrap/Button":"1ru0l","react-bootstrap/Form":"6A5ko","react-bootstrap/Col":"2D0r8","react-bootstrap/Row":"3fzwD","./profile-view.scss":"3kYjk","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"3kYjk":[function() {},{}],"3X8QW":[function() {},{}],"5BG8F":[function(require,module,exports) {
+},{"react":"3b2NM","prop-types":"4dfy5","axios":"7rA65","react-router-dom":"1PMSK","react-bootstrap":"4n7hB","react-bootstrap/Button":"1ru0l","react-bootstrap/Form":"6A5ko","react-bootstrap/Col":"2D0r8","react-bootstrap/Row":"3fzwD","./profile-view.scss":"3kYjk","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr","url:../../img/trash.svg":"2Ycm4"}],"3kYjk":[function() {},{}],"2Ycm4":[function(require,module,exports) {
+module.exports = require('./bundle-url').getBundleURL() + "trash.ad3c840d.svg"
+},{"./bundle-url":"7Miyj"}],"3X8QW":[function() {},{}],"5BG8F":[function(require,module,exports) {
 module.exports = require('./bundle-url').getBundleURL() + "video.4b174693.svg"
 },{"./bundle-url":"7Miyj"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 

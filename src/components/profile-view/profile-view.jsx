@@ -30,15 +30,18 @@ export class ProfileView extends React.Component {
   }
   componentDidMount() {
     let accessToken = localStorage.getItem("token");
-    this.getUser(accessToken);
+    this.getUsers(accessToken);
   }
-  getUser(token) {
+  getUsers(token) {
     console.log(localStorage.getItem("user"));
-    axios.get("https://myflix-movie-api-2312.herokuapp.com/users/" +
-      localStorage.getItem("user"), {
+    const url = "https://myflix-movie-api-2312.herokuapp.com/users/" +
+      localStorage.getItem("user");
+    axios.get(url, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(response => {
+        // console.log(response);
+        //assign the result to this state
         this.setState({
           Username: response.data.Username,
           // Password: response.data.Password,
@@ -169,7 +172,7 @@ export class ProfileView extends React.Component {
                   <Form.Control type="text" name="Username" value={this.state.Username} onChange={(e) => this.handleChange(e)} placeholder="Change Username" />
                   {Object.keys(UsernameError).map((key) => {
                     return (
-                      <div key={key} style={{ color: red }}>
+                      <div key={key} style={{ color: "red" }}>
                         {UsernameError[key]}
                       </div>
                     );
@@ -198,7 +201,7 @@ export class ProfileView extends React.Component {
                   {Object.keys(EmailError).map((key) => {
                     return (
                       <div key={key} style={{ color: "red" }}>
-                        {PasswordError[key]}
+                        {EmailError[key]}
                       </div>
                     );
                   })}

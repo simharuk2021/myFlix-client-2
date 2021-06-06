@@ -32876,11 +32876,11 @@ try {
       let usernameError = {};
       let passwordError = {};
       let isValid = true;
-      if (username.trim().length < 5) {
+      if (this.state.Username.trim().length < 5) {
         usernameError.usernameShort = "Username be alphanumeric characters only and contains at least 5 characters";
         isValid = false;
       }
-      if (password.trim().length < 3) {
+      if (this.state.Password.trim().length < 3) {
         passwordError.passwordMissing = "You must enter a password.(minimum 4 characters) ";
         isValid = false;
       }
@@ -32950,7 +32950,7 @@ try {
           /*#__PURE__*/_reactDefault.default.createElement("div", {
             key: key,
             style: {
-              color: "red"
+              color: red
             },
             __self: this,
             __source: {
@@ -46663,19 +46663,19 @@ try {
       let emailError = {};
       let birthdayError = {};
       let isValid = true;
-      if (username.trim().length < 5) {
+      if (this.state.Username.trim().length < 5) {
         usernameError.usernameShort = "Username be alphanumeric characters only and contains at least 5 characters";
         isValid = false;
       }
-      if (password.trim().length < 3) {
+      if (this.state.Password.trim().length < 3) {
         passwordError.passwordMissing = "You must enter a password.(minimum 4 characters) ";
         isValid = false;
       }
-      if (!(email && email.includes(".") && email.includes("@"))) {
+      if (!(this.state.Email && this.state.Email.includes(".") && this.state.Email.includes("@"))) {
         emailError.emailNotEmail = "A valid email address is required.";
         isValid = false;
       }
-      if (birthday === '') {
+      if (this.state.Birthday === '') {
         birthdayError.birthdayEmpty = "Please enter your birthday.";
         isValid = false;
       }
@@ -47058,7 +47058,7 @@ try {
 }
 
 },{"react":"3b2NM","axios":"7rA65","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","react-router-dom":"1PMSK","url:../../img/heart.svg":"1gBQG","./movie-card.scss":"43n4t","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"1gBQG":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "heart.1d00974d.svg"
+module.exports = require('./bundle-url').getBundleURL() + "heart.HASH_REF_9d72a7f5655e8a020b883a941d00974d.svg"
 },{"./bundle-url":"7Miyj"}],"7Miyj":[function(require,module,exports) {
 "use strict";
 
@@ -47705,7 +47705,7 @@ try {
             /*#__PURE__*/_reactDefault.default.createElement("div", {
               key: key,
               style: {
-                color: "red"
+                color: red
               },
               __self: this,
               __source: {
@@ -48002,7 +48002,7 @@ try {
 }
 
 },{"react":"3b2NM","prop-types":"4dfy5","axios":"7rA65","react-router-dom":"1PMSK","react-bootstrap":"4n7hB","react-bootstrap/Button":"1ru0l","react-bootstrap/Form":"6A5ko","react-bootstrap/Col":"2D0r8","react-bootstrap/Row":"3fzwD","./profile-view.scss":"3kYjk","@parcel/transformer-js/lib/esmodule-helpers.js":"VCDD2","../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"3Oiqr"}],"3kYjk":[function() {},{}],"3X8QW":[function() {},{}],"5BG8F":[function(require,module,exports) {
-module.exports = require('./bundle-url').getBundleURL() + "video.4b174693.svg"
+module.exports = require('./bundle-url').getBundleURL() + "video.HASH_REF_62790e1e9f114bb57e0cb3724b174693.svg"
 },{"./bundle-url":"7Miyj"}],"5iJih":[function() {},{}]},["1j6wU","68WUB","1DVjT"], "1DVjT", "parcelRequire279c")
 
-//# sourceMappingURL=index.02675e63.js.map
+//# sourceMappingURL=index.HASH_REF_f9eab60bc3a7a7c3f683683702675e63.js.map

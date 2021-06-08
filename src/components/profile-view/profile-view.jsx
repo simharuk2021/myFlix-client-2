@@ -263,10 +263,10 @@ export class ProfileView extends React.Component {
           </Col>
 
         </Row>
-        {/* <div id="delete-account">
+        <div id="delete-account">
           <br />
           <Button variant="outline-warning" onClick={() => this.handleDelete()}>Delete Account</Button>
-        </div> */}
+        </div>
       </div >
     );
   }

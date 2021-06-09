@@ -1,0 +1,1 @@
+module.exports = require('./bundle-url').getBundleURL() + "video.HASH_REF_62790e1e9f114bb57e0cb3724b174693.svg"

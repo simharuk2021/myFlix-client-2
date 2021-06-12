@@ -1,0 +1,13 @@
+#reg-form {
+  background-color: black;
+  color: white;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+}
+
+.logo {
+  float: inline-end;
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 50px;
+}

@@ -21,10 +21,9 @@ import { Link } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import { Navbar } from 'react-bootstrap';
 
 import './main-view.scss';
-
-import { Navbar, NavbarBrand } from 'react-bootstrap';
 
 // import fantasticbeastsImage from 'url:../../img/fantastic.jpg';
 import videoLogo from 'url:../../img/video.svg';
@@ -75,13 +74,6 @@ export class MainView extends React.Component {
         console.log(error);
       });
   }
-
-  // //when movie clicked, this function updates state of 'selectedMovie' property to that movie//
-  // setSelectedMovie(movie) {
-  //   this.setState({
-  //     selectedMovie: movie
-  //   });
-  // }
 
   //when user successfully logs in - function updates 'user' property in state to that particular user - keep authData in localStorage//
   onLoggedIn(authData) {

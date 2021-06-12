@@ -18,7 +18,7 @@ export class MovieView extends React.Component {
     return (
       <Card id="lg-card" className="movie-view">
         <Card.Header id="movie-title">{movie.Title}</Card.Header>
-        <Card.Img className="movie-poster" variant="top" src="https://via.placeholder.com/693px200" />
+        <Card.Img className="movie-poster" variant="top" src={movie.PosterPath} />
         <Card.Body>
           <Card.Text>
             Description: {movie.Description}

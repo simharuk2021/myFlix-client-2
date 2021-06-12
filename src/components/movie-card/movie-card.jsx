@@ -27,6 +27,7 @@ export class MovieCard extends React.Component {
 
   render() {
     const { movie } = this.props;
+
     return (
       <Card id="card" className="movie-card mb-2" text="white">
         <Card.Img variant="top" src={movie.ImagePath} />

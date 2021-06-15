@@ -7,41 +7,32 @@ import { Link } from "react-router-dom";
 
 import './director-view.scss';
 
-export class DirectorView extends React.Component {
+export function DirectorView(props) {
 
-  render() {
-    const { director, onBackClick } = this.props;
 
-    return (
-      <Card id="lg-card" className="director-view">
-        <Card.Header id="movie-title">{director.Name}</Card.Header>
-        <Card.Body>
-          <Card.Text>
-            Bio: {director.Bio} <br />
-            DOB-DOD: {director.Birth}  - {director.Death}<br />
-          </Card.Text>
-          <Button variant="outline-light" onClick={onBackClick}>Back</Button>
-        </Card.Body>
-      </Card>
-    );
-  }
+  const { director, onBackClick } = props;
+
+  return (
+    <Card id="lg-card" className="director-view">
+      <Card.Header id="movie-title">{director.Name}</Card.Header>
+      <Card.Body>
+        <Card.Text>
+          Bio: {director.Bio} <br />
+          DOB-DOD: {director.Birth}  - {director.Death}<br />
+        </Card.Text>
+        <Button variant="outline-light" onClick={onBackClick}>Back</Button>
+      </Card.Body>
+    </Card>
+  );
 }
 
+
 DirectorView.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Description: PropTypes.string.isRequired
-    }).isRequired,
-    Director: PropTypes.shape({
-      Name: PropTypes.string.isRequired,
-      Bio: PropTypes.string.isRequired,
-      Birth: PropTypes.string.isRequired,
-      Death: PropTypes.string
-    }).isRequired,
-    ImagePath: PropTypes.string.isRequired
+  director: PropTypes.shape({
+    Name: PropTypes.string.isRequired,
+    Bio: PropTypes.string.isRequired,
+    Birth: PropTypes.string.isRequired,
+    Death: PropTypes.string
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
 };

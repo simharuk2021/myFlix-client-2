@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
-// import moment from 'moment';
+
+import { connect } from 'react-redux';
+
+import { setUser } from '../../actions/actions';
 
 import { Link } from "react-router-dom";
 
@@ -34,7 +37,7 @@ export class ProfileView extends React.Component {
     let accessToken = localStorage.getItem("token");
     this.getUsers(accessToken);
   }
-  getUsers(token) {
+  getUsers(token, authDadta) {
     console.log(localStorage.getItem("user"));
     const url = "https://myflix-movie-api-2312.herokuapp.com/users/" +
       localStorage.getItem("user");
@@ -42,11 +45,10 @@ export class ProfileView extends React.Component {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then(response => {
-        // console.log(response);
         //assign the result to this state
         this.setState({
           Username: response.data.Username,
-          // Password: response.data.Password,
+          Password: response.data.Password,
           Email: response.data.Email,
           Birthday: response.data.Birthday,
           FavoriteMovies: response.data.FavoriteMovies,
@@ -185,7 +187,7 @@ export class ProfileView extends React.Component {
                 </Form.Group>
                 <Form.Group controlId="formPassword">
                   <Form.Label>Password: </Form.Label>
-                  <FormControl type="password" name="Password" value={this.state.Password} onChange={(e) => this.handleChange(e)} placeholder="Change Your Password" />
+                  <FormControl type="password" name="Password" onChange={(e) => this.handleChange(e)} placeholder="Change Your Password" />
                   {Object.keys(PasswordError).map((key) => {
                     return (
                       <div key={key} style={{ color: "red" }}>
@@ -210,7 +212,7 @@ export class ProfileView extends React.Component {
                 </Form.Group>
                 <Form.Group controlId="formBirthday">
                   <Form.Label>Brithday:</Form.Label>
-                  <Form.Control type="date" name="Birthday" value={this.state.Birthday} onChange={(e) => this.handleChange(e)} placeholder="Update Birthday" />
+                  <Form.Control type="date" name="Birthday" onChange={(e) => this.handleChange(e)} />
                   {Object.keys(BirthdayError).map((key) => {
                     return (
                       <div key={key} style={{ color: "red" }}>
@@ -220,24 +222,25 @@ export class ProfileView extends React.Component {
                   })}
                 </Form.Group>
                 <Link to={'`/users/${this.state.Username}`'}>
-                  <Button variant="outline-warning" type="link" block onClick={(e) => this.handleUpdate(e)}>Save Changes</Button>
+                  <Button id="save-btn" variant="outline-warning" block onClick={(e) => this.handleUpdate(e)}>Save Changes</Button>
                 </Link>
               </Form>
-
+              <br />
+              <Button variant="outline-warning" block onClick={() => this.handleDelete()}>Delete Account</Button>
             </div>
           </Col>
 
 
 
 
-          <Col md={6}>
+          <Col md={6} >
             <div id="favoriteMovies">
 
               <h4>Your Favorite Movies:</h4>
               {FavoriteMovieList.map((movie) => {
                 return (
                   <Card id="card" className="movie-card mb-2" text="white">
-                    <Card.Img variant="top" src={movie.ImagePath} />
+                    <Card.Img variant="top" src={movie.PosterPath} />
                     <Card.Body>
                       <Link to={`/movies/${movie._id}`} id="link">
                         {movie.Title}
@@ -263,10 +266,7 @@ export class ProfileView extends React.Component {
           </Col>
 
         </Row>
-        <div id="delete-account">
-          <br />
-          <Button variant="outline-warning" onClick={() => this.handleDelete()}>Delete Account</Button>
-        </div>
+
       </div >
     );
   }
@@ -275,5 +275,4 @@ export class ProfileView extends React.Component {
 ProfileView.propType = {
   movies: PropTypes.array.isRequired
 };
-
 

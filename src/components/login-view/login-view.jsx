@@ -3,16 +3,16 @@ import axios from 'axios';
 
 import { Link } from "react-router-dom";
 
+import { connect } from 'react-redux';
+
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 import './login-view.scss';
-import { NavbarBrand } from 'react-bootstrap';
 
 export function LoginView(props) {
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState('');
@@ -25,9 +25,11 @@ export function LoginView(props) {
     /* Send a request to the server for authentication */
 
     if (setisValid) {
-      axios.post('https://myflix-movie-api-2312.herokuapp.com/login', {
-        Username: username,
-        Password: password
+      axios.post('https://myflix-movie-api-2312.herokuapp.com/login', null, {
+        params: {
+          Username: username,
+          Password: password
+        }
       })
         .then(res => {
           const data = res.data;
@@ -87,9 +89,9 @@ export function LoginView(props) {
                 );
               })}
             </Form.Group>
-            <Button variant="outline-warning" type="submit" onClick={handleSubmit}>Submit</Button>{''} {''}
+            <Button id="login-btn" variant="outline-warning mr-4" type="submit" onClick={handleSubmit}>Submit</Button>{''} Not yet a member?
             <Link to={`/register`}>
-              <Button variant="outline-light">Register</Button>
+              <Button id="link" variant="link">Register Now</Button>
             </Link>
           </Form>
         </Col>
@@ -100,3 +102,10 @@ export function LoginView(props) {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (username, password) =>
+    dispatch(handleSubmit(username, password))
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);

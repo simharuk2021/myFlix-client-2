@@ -11,6 +11,11 @@ import heartImg from 'url:../../img/heart.svg';
 import './movie-card.scss';
 
 export class MovieCard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   handleAdd() {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
@@ -33,7 +38,7 @@ export class MovieCard extends React.Component {
         <Card.Img variant="top" src={movie.ImagePath} />
         <Card.Body>
           <Card.Title id="card-title">{movie.Title}</Card.Title>
-          <Card.Text>{movie.Description}</Card.Text>
+          <Card.Text>{movie.Description.slice(0, 75)}...</Card.Text>
           <Link to={`/movies/${movie._id}`}>
             <Button id="openMovie" variant="outline-light">Open</Button>
           </Link>
@@ -53,11 +58,3 @@ export class MovieCard extends React.Component {
   }
 }
 
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    Title: PropTypes.string.isRequired,
-    Description: PropTypes.string.isRequired,
-    ImagePath: PropTypes.string.isRequired
-  }).isRequired,
-  onMovieClick: PropTypes.func.isRequired
-};

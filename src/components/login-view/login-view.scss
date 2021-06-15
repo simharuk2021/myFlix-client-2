@@ -20,5 +20,12 @@ $title-font: 'Archivo Black', sans-serif;
   color: $yellow;
   font-family: $title-font;
   font-size: 50px;
+}
 
+#link{
+  color: #ffc107 !important;
+}
+
+#login-btn{
+  font-size: $text-size;
 }

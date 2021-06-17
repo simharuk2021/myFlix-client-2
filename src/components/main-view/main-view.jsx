@@ -16,6 +16,8 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view';
 
+
+
 import { Link } from "react-router-dom";
 
 import Row from 'react-bootstrap/Row';
@@ -39,11 +41,23 @@ export class MainView extends React.Component {
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
+      this.getUsers(accessToken, localStorage.getItem('user'));
       this.getMovies(accessToken);
     }
+  }
+
+  getUsers(token, username) {
+    const url = "https://myflix-movie-api-2312.herokuapp.com/users/" + username;
+    axios.get(url, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then(response => {
+        //assign the result to this state
+        this.props.setUser(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   getMovies(token) {
@@ -61,10 +75,8 @@ export class MainView extends React.Component {
   //when user successfully logs in - function updates 'user' property in state to that particular user - keep authData in localStorage//
   onLoggedIn(authData) {
     console.log(authData);
-    this.props.setUser(authData);
-    this.setState({
-      user: authData.user.Username
-    });
+    this.props.setUser(authData.user);
+
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
@@ -85,8 +97,8 @@ export class MainView extends React.Component {
   }
 
   render() {
-    let { movies } = this.props;
-    let { user } = this.state;
+    let { movies, user } = this.props;
+    console.log("render", user);
 
     return (
       <Router>
@@ -191,6 +203,7 @@ export class MainView extends React.Component {
                 <ProfileView
                   user={user}
                   movies={movies}
+                  // movie={movies.find(m => m._id === match.params.movieId)}
                   onBackClick={() => history.goBack()} />
               </Col>
             }} />

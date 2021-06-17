@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from "axios";
 
@@ -19,45 +19,16 @@ import trashImg from 'url:../../img/trash.svg';
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Username: "",
-      Password: "",
-      Email: "",
-      Birthday: "",
-      FavoriteMovies: [],
-      UsernameError: "",
-      PasswordError: "",
-      EmailError: "",
-      BirthdayError: ""
-    };
-  }
-  componentDidMount() {
-    let accessToken = localStorage.getItem("token");
-    this.getUsers(accessToken);
-  }
-  getUsers(token, authDadta) {
-    console.log(localStorage.getItem("user"));
-    const url = "https://myflix-movie-api-2312.herokuapp.com/users/" +
-      localStorage.getItem("user");
-    axios.get(url, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then(response => {
-        //assign the result to this state
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies,
-        });
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     UsernameError: "",
+  //     PasswordError: "",
+  //     EmailError: "",
+  //     BirthdayError: ""
+  //   };
+  // }
+
   removeFavorite(movie) {
     const token = localStorage.getItem("token");
     axios
@@ -68,7 +39,6 @@ export class ProfileView extends React.Component {
         })
       .then((response) => {
         console.log(response);
-        this.componentDidMount();
         location.reload();
         alert(movie.Title + " has been removed from your Favorites.");
       });
@@ -90,65 +60,67 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
-  handleUpdate(e) {
+  handleUpdate() {
     let token = localStorage.getItem("token");
     let user = localStorage.getItem("user");
-    console.log(this.state);
 
-    let setisValid = this.formValidation();
-    if (setisValid) {
-      axios.put('https://myflix-movie-api-2312.herokuapp.com/users/${user}', {
-        Username: this.state.Username,
-        Password: this.state.Password,
-        Email: this.state.Email,
-        Birthday: this.state.Birthday
-      },
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        })
-        .then((res) => {
-          const data = response.data;
-          localStorage.setItem("user", data.Username);
-          console.log(data);
-          alert(user + "account has been updated.");
-          console.log(res);
-        })
-        .catch(function (err) {
-          console.log(err.res.data);
-        });
-    }
+    // let setisValid = this.formValidation();
+    // if (setisValid) {
+    axios.put(`https://myflix-movie-api-2312.herokuapp.com/users/${user}`, {
+      Username: this.state.Username,
+      Password: this.state.Password,
+      Email: this.state.Email,
+      Birthday: this.state.Birthday
+    },
+      {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then((response) => {
+        const data = response.data;
+        localStorage.setItem("user", data.user);
+        console.log(data);
+        alert(user + "account has been updated.");
+        console.log(res);
+      })
+      .catch(function (err) {
+        console.log(err.response.data);
+      });
   }
-  formValidation() {
-    let UsernameError = {};
-    let EmailError = {};
-    let PasswordError = {};
-    let BirthdayError = {};
-    let isValid = true;
-    if (this.state.Username.trim().length < 5) {
-      UsernameError.usernameShort = "Username be alphanumeric characters only and contains at least 5 characters";
-      isValid = false;
-    }
-    if (this.state.Password.trim().length < 3) {
-      PasswordError.passwordMissing = "You must enter a password.(minimum 4 characters) ";
-      isValid = false;
-    }
-    if (!(this.state.Email && this.state.Email.includes(".") && this.state.Email.includes("@"))) {
-      EmailError.emailNotEmail = "A valid email address is required.";
-      isValid = false;
-    }
-    if (this.state.birthday === '') {
-      BirthdayError.birthdayEmpty = "Please enter your birthday.";
-      isValid = false;
-    }
-    this.setState({
-      UsernameError: UsernameError,
-      PasswordError: PasswordError,
-      EmailError: EmailError,
-      // ConfirmPasswordError: ConfirmPasswordError,
-      BirthdayError: BirthdayError,
-    })
-    return isValid;
-  };
+
+  // formValidation() {
+  //   const userData = localStorage.getItem("user");
+  //   console.log("formvalidation", user);
+  //   let UsernameError = {};
+  //   let EmailError = {};
+  //   let PasswordError = {};
+  //   let BirthdayError = {};
+  //   let isValid = true;
+  //   if (user.Username.trim().length < 5) {
+  //     UsernameError.usernameShort = "Username be alphanumeric characters only and contains at least 5 characters";
+  //     isValid = false;
+  //   }
+  //   if (user.Password.trim().length < 3) {
+  //     PasswordError.passwordMissing = "You must enter a password.(minimum 4 characters) ";
+  //     isValid = false;
+  //   }
+  //   if (!(user.Email && user.Email.includes(".") && user.Email.includes("@"))) {
+  //     EmailError.emailNotEmail = "A valid email address is required.";
+  //     isValid = false;
+  //   }
+  //   if (user.birthday === '') {
+  //     BirthdayError.birthdayEmpty = "Please enter your birthday.";
+  //     isValid = false;
+  //   }
+  //   this.setState({
+  //     UsernameError: UsernameError,
+  //     PasswordError: PasswordError,
+  //     EmailError: EmailError,
+  //     // ConfirmPasswordError: ConfirmPasswordError,
+  //     BirthdayError: BirthdayError,
+  //   })
+  //   return isValid;
+  // };
+
   handleChange(e) {
     let { name, value } = e.target;
     this.setState({
@@ -157,72 +129,65 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { movies } = this.props;
-    const { UsernameError, EmailError, PasswordError, BirthdayError } = this.state;
+    const { movies, user } = this.props;
+    console.log("render ProfileView", user);
     const FavoriteMovieList = movies.filter(movie => {
-      return this.state.FavoriteMovies.includes(movie._id);
+      return user.FavoriteMovies.includes(movie._id);
     });
 
+
     return (
+
       <div className="flexWrap">
         <Row>
           <Col md={6}>
+
             <div id="userForm">
 
               <Form className="profile-details-form">
                 <h4>User Profile:</h4>
                 <Form.Group controlId="formUsername">
                   <Form.Label>Username:</Form.Label>
-                  <Form.Control type="text" name="Username" value={this.state.Username} onChange={(e) => this.handleChange(e)} placeholder="Change Username" />
-                  {Object.keys(UsernameError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {UsernameError[key]}
-                      </div>
-                    );
-                  })}
+                  <Form.Control type="text" name="Username"
+                    value={user.Username}
+                    onChange={(e) => this.handleChange(e)}
+                    placeholder="Change Username"
+                    pattern='[a-zA-Z0-9]{5,}' />
+                  <Form.Control.Feedback type='invalid'>Please enter a valid username with at least 5 alphanumeric characters.</Form.Control.Feedback>
+
                   <Form.Text id="usernameHelpBlock" muted>
                     Username must be a minimum of 5 characters
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formPassword">
                   <Form.Label>Password: </Form.Label>
-                  <FormControl type="password" name="Password" onChange={(e) => this.handleChange(e)} placeholder="Change Your Password" />
-                  {Object.keys(PasswordError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {PasswordError[key]}
-                      </div>
-                    );
-                  })}
+                  <FormControl type="password" name="Password"
+                    onChange={(e) => this.handleChange(e)}
+                    placeholder="Change Your Password"
+                    pattern='.{5,}' />
+                  <Form.Control.Feedback type='invalid'>Please enter a valid password with at least 5 characters.</Form.Control.Feedback>
+
                   <Form.Text id="passwordHelpBlock" muted>
                     Password must be a minimum of 4 characters
                   </Form.Text>
                 </Form.Group>
                 <Form.Group controlId="formEmail">
                   <Form.Label>Email:</Form.Label>
-                  <Form.Control type="text" name="Email" value={this.state.Email} onChange={(e) => this.handleChange(e)} placeholder="john.doe@email.com" />
-                  {Object.keys(EmailError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {EmailError[key]}
-                      </div>
-                    );
-                  })}
+                  <Form.Control type="email" name="Email"
+                    value={user.Email}
+                    onChange={(e) => this.handleChange(e)} />
+                  <Form.Control.Feedback type='invalid'>Please enter a valid email address.</Form.Control.Feedback>
+
                 </Form.Group>
                 <Form.Group controlId="formBirthday">
-                  <Form.Label>Brithday:</Form.Label>
-                  <Form.Control type="date" name="Birthday" onChange={(e) => this.handleChange(e)} />
-                  {Object.keys(BirthdayError).map((key) => {
-                    return (
-                      <div key={key} style={{ color: "red" }}>
-                        {BirthdayError[key]}
-                      </div>
-                    );
-                  })}
+                  <Form.Label>Birthday:</Form.Label>
+                  <Form.Control type="date" name="Birthday"
+                    onChange={(e) => this.handleChange(e)} />
+                  <Form.Control.Feedback type='invalid'>Please enter a valid birthday.</Form.Control.Feedback>
+
                 </Form.Group>
-                <Link to={'`/users/${this.state.Username}`'}>
-                  <Button id="save-btn" variant="outline-warning" block onClick={(e) => this.handleUpdate(e)}>Save Changes</Button>
+                <Link to={`/users/${user.Username}`}>
+                  <Button id="save-btn" variant="outline-warning" block onClick={() => this.handleUpdate()}>Save Changes</Button>
                 </Link>
               </Form>
               <br />

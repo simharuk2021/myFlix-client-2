@@ -19,15 +19,77 @@ import trashImg from 'url:../../img/trash.svg';
 import './profile-view.scss';
 
 export class ProfileView extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     UsernameError: "",
-  //     PasswordError: "",
-  //     EmailError: "",
-  //     BirthdayError: ""
-  //   };
-  // }
+  constructor(props) {
+    super(props);
+    this.state = {
+      validated: null
+    };
+    console.log('Profile View Loaded');
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
+
+  handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
+    this.setState({
+      validated: null,
+    });
+
+    const form = e.currentTarget;
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+      this.setState({
+        validated: true,
+      });
+      return;
+    }
+    e.preventDefault();
+
+    const token = localStorage.getItem('token');
+    const user = localStorage.getItem('user');
+    const url = 'https://myflix-movie-api-2312.herokuapp.com/users/';
+
+    axios({
+      method: 'put',
+      url: url + user,
+      headers: { Authorization: `Bearer ${token}` },
+      data: {
+        Username: newUsername ? newUsername : this.state.Username,
+        Password: newPassword ? newPassword : this.state.Password,
+        Email: newEmail ? newEmail : this.state.Email,
+        Birthday: newBirthday ? newBirthday : this.state.Birthday,
+      },
+    })
+      .then(response => {
+        this.setState({
+          Username: response.data.Username,
+          Password: response.data.Password,
+          Email: response.data.Email,
+          Birthday: response.data.Birthday,
+        });
+        alert(this.state.Username + ' changes have been saved!');
+        localStorage.setItem('user', this.state.Username);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  setUsername(input) {
+    this.Username = input;
+  }
+
+  setPassword(input) {
+    this.Password = input;
+  }
+
+  setEmail(input) {
+    this.Email = input;
+  }
+
+  setBirthday(input) {
+    this.Birthday = input;
+  }
+
 
   removeFavorite(movie) {
     const token = localStorage.getItem("token");
@@ -60,77 +122,10 @@ export class ProfileView extends React.Component {
         console.log(error);
       });
   }
-  handleUpdate() {
-    let token = localStorage.getItem("token");
-    let user = localStorage.getItem("user");
-
-    // let setisValid = this.formValidation();
-    // if (setisValid) {
-    axios.put(`https://myflix-movie-api-2312.herokuapp.com/users/${user}`, {
-      Username: this.state.Username,
-      Password: this.state.Password,
-      Email: this.state.Email,
-      Birthday: this.state.Birthday
-    },
-      {
-        headers: { Authorization: `Bearer ${token}` }
-      })
-      .then((response) => {
-        const data = response.data;
-        localStorage.setItem("user", data.user);
-        console.log(data);
-        alert(user + "account has been updated.");
-        console.log(res);
-      })
-      .catch(function (err) {
-        console.log(err.response.data);
-      });
-  }
-
-  // formValidation() {
-  //   const userData = localStorage.getItem("user");
-  //   console.log("formvalidation", user);
-  //   let UsernameError = {};
-  //   let EmailError = {};
-  //   let PasswordError = {};
-  //   let BirthdayError = {};
-  //   let isValid = true;
-  //   if (user.Username.trim().length < 5) {
-  //     UsernameError.usernameShort = "Username be alphanumeric characters only and contains at least 5 characters";
-  //     isValid = false;
-  //   }
-  //   if (user.Password.trim().length < 3) {
-  //     PasswordError.passwordMissing = "You must enter a password.(minimum 4 characters) ";
-  //     isValid = false;
-  //   }
-  //   if (!(user.Email && user.Email.includes(".") && user.Email.includes("@"))) {
-  //     EmailError.emailNotEmail = "A valid email address is required.";
-  //     isValid = false;
-  //   }
-  //   if (user.birthday === '') {
-  //     BirthdayError.birthdayEmpty = "Please enter your birthday.";
-  //     isValid = false;
-  //   }
-  //   this.setState({
-  //     UsernameError: UsernameError,
-  //     PasswordError: PasswordError,
-  //     EmailError: EmailError,
-  //     // ConfirmPasswordError: ConfirmPasswordError,
-  //     BirthdayError: BirthdayError,
-  //   })
-  //   return isValid;
-  // };
-
-  handleChange(e) {
-    let { name, value } = e.target;
-    this.setState({
-      [name]: value
-    })
-  }
 
   render() {
     const { movies, user } = this.props;
-    console.log("render ProfileView", user);
+    const { validated } = this.state;
     const FavoriteMovieList = movies.filter(movie => {
       return user.FavoriteMovies.includes(movie._id);
     });
@@ -144,61 +139,58 @@ export class ProfileView extends React.Component {
 
             <div id="userForm">
 
-              <Form className="profile-details-form">
-                <h4>User Profile:</h4>
-                <Form.Group controlId="formUsername">
+              <Form noValidate validated={validated} className='update-form' onSubmit={(e) => this.handleUpdate(e, this.Username, this.Password, this.Email, this.Birthday)}>
+
+                <h4>Update your Profile</h4>
+                <Form.Group controlId="BasicUsername">
                   <Form.Label>Username:</Form.Label>
-                  <Form.Control type="text" name="Username"
-                    value={user.Username}
-                    onChange={(e) => this.handleChange(e)}
-                    placeholder="Change Username"
-                    pattern='[a-zA-Z0-9]{5,}' />
-                  <Form.Control.Feedback type='invalid'>Please enter a valid username with at least 5 alphanumeric characters.</Form.Control.Feedback>
-
-                  <Form.Text id="usernameHelpBlock" muted>
-                    Username must be a minimum of 5 characters
-                  </Form.Text>
+                  <Form.Control type="text"
+                    placeholder={user.Username}
+                    autoComplete="username"
+                    onChange={(e) => this.setUsername(e.target.value)}
+                    pattern='[a-zA-Z0-9]{5,}'
+                    minLength="5" />
+                  <Form.Control.Feedback type='invalid'>Enter a Username with at least 5 characters (no speacial characters)</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group controlId="formPassword">
-                  <Form.Label>Password: </Form.Label>
-                  <FormControl type="password" name="Password"
-                    onChange={(e) => this.handleChange(e)}
-                    placeholder="Change Your Password"
-                    pattern='.{5,}' />
-                  <Form.Control.Feedback type='invalid'>Please enter a valid password with at least 5 characters.</Form.Control.Feedback>
-
-                  <Form.Text id="passwordHelpBlock" muted>
-                    Password must be a minimum of 4 characters
-                  </Form.Text>
+                <Form.Group controlId="BasicPassword">
+                  <Form.Label>Password:*</Form.Label>
+                  <Form.Control type="password"
+                    placeholder="Enter current or new Password"
+                    autoComplete="password"
+                    onChange={(e) => this.setPassword(e.target.value)} minLength="5" required />
+                  <Form.Control.Feedback type='invalid'>Enter a valid password with at least 5 characters</Form.Control.Feedback>
                 </Form.Group>
-                <Form.Group controlId="formEmail">
+                <Form.Group controlId="BasicEmail">
                   <Form.Label>Email:</Form.Label>
-                  <Form.Control type="email" name="Email"
-                    value={user.Email}
-                    onChange={(e) => this.handleChange(e)} />
+                  <Form.Control type="email"
+                    placeholder={user.Email}
+                    autoComplete="email"
+                    onChange={(e) => this.setEmail(e.target.value)} />
                   <Form.Control.Feedback type='invalid'>Please enter a valid email address.</Form.Control.Feedback>
-
                 </Form.Group>
-                <Form.Group controlId="formBirthday">
+                <Form.Group controlId="BasicBirthday">
                   <Form.Label>Birthday:</Form.Label>
-                  <Form.Control type="date" name="Birthday"
-                    onChange={(e) => this.handleChange(e)} />
-                  <Form.Control.Feedback type='invalid'>Please enter a valid birthday.</Form.Control.Feedback>
-
+                  <Form.Control type="date"
+                    onChange={(e) => this.setBirthday(e.target.value)} />
+                  <Form.Control.Feedback type='invalid'>Please enter a valid date.</Form.Control.Feedback>
                 </Form.Group>
-                <Link to={`/users/${user.Username}`}>
-                  <Button id="save-btn" variant="outline-warning" block onClick={() => this.handleUpdate()}>Save Changes</Button>
-                </Link>
+                <Button variant="outline-warning" block type="submit">Update</Button>
               </Form>
+
               <br />
               <Button variant="outline-warning" block onClick={() => this.handleDelete()}>Delete Account</Button>
+              <br />
             </div>
           </Col>
 
 
 
 
+
+
+
           <Col md={6} >
+
             <div id="favoriteMovies">
 
               <h4>Your Favorite Movies:</h4>

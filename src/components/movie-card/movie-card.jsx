@@ -6,6 +6,9 @@ import Card from 'react-bootstrap/Card';
 
 import { Link } from "react-router-dom";
 
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
+
 import heartImg from 'url:../../img/heart.svg';
 
 import './movie-card.scss';
@@ -27,11 +30,12 @@ export class MovieCard extends React.Component {
       .then((response) => {
         console.log(response);
         alert(this.props.movie.Title + " has been added to your Favorites List.");
+        this.props.setUser(response.data);
       })
   }
 
   render() {
-    const { movie } = this.props;
+    const { movie, setUser } = this.props;
 
     return (
       <Card id="card" className="movie-card mb-2" text="white">
@@ -57,4 +61,13 @@ export class MovieCard extends React.Component {
     );
   }
 }
+
+let mapStateToProps = state => {
+  return {
+    movies: state.movies,
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, { setUser })(MovieCard);
 

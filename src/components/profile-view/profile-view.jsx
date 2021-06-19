@@ -37,9 +37,10 @@ export class ProfileView extends React.Component {
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
-      this.setState({
-        validated: true,
-      });
+      this.props.setUser();
+      // this.setState({
+      //   validated: true,
+      // });
       return;
     }
     e.preventDefault();
@@ -101,7 +102,7 @@ export class ProfileView extends React.Component {
         })
       .then((response) => {
         console.log(response);
-        location.reload();
+        this.props.setUser(response.data);
         alert(movie.Title + " has been removed from your Favorites.");
       });
   }
@@ -124,7 +125,7 @@ export class ProfileView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.props;
+    const { movies, user, setUser } = this.props;
     const { validated } = this.state;
     const FavoriteMovieList = movies.filter(movie => {
       return user.FavoriteMovies.includes(movie._id);
@@ -232,4 +233,14 @@ export class ProfileView extends React.Component {
 ProfileView.propType = {
   movies: PropTypes.array.isRequired
 };
+
+
+let mapStateToProps = state => {
+  return {
+    movies: state.movies,
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps, { setUser })(ProfileView);
 

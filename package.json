@@ -19,7 +19,6 @@
   "dependencies": {
     "axios": "^0.21.1",
     "file-loader": "^6.2.0",
-    "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -29,5 +28,10 @@
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "url-loader": "^4.1.1"
+<<<<<<< HEAD
   }
+=======
+  },
+  "devDependencies": {}
+>>>>>>> parent of ed1d975c (add parcel for deploy)
 }

@@ -28,5 +28,10 @@
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
     "url-loader": "^4.1.1"
+<<<<<<< HEAD
   }
+=======
+  },
+  "devDependencies": {}
+>>>>>>> parent of ed1d975c (add parcel for deploy)
 }

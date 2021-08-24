@@ -1,0 +1,194 @@
+var helpers = require("../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "Profile", function () {
+    return Profile;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactRouterDom = require('react-router-dom');
+  var _reactBootstrap = require('react-bootstrap');
+  var _jsxFileName = "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\profile-view\\profile.jsx";
+  function Profile(props) {
+    const {user, movies, onBackClick} = props;
+    // obj destructuring
+    const favMovies = movies.filter(movie => user.FavoriteMovies && user.FavoriteMovies.includes(movie._id));
+    // const toWatch = movies.filter((movie) => userData.ToWatch && userData.ToWatch.includes(movie._id));
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Container, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11,
+          columnNumber: 5
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
+        className: "user-view",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12,
+          columnNumber: 7
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13,
+          columnNumber: 9
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14,
+          columnNumber: 11
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        className: "user-view-info",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 15,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Header, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16,
+          columnNumber: 15
+        }
+      }, "Profile Information"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Body, {
+        className: "username",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 18,
+          columnNumber: 15
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Title, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 19,
+          columnNumber: 17
+        }
+      }, "Username: "), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Text, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 20,
+          columnNumber: 17
+        }
+      }, user.Username), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Title, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22,
+          columnNumber: 17
+        }
+      }, "Email: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "value",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 17
+        }
+      }, user.Email), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Title, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 17
+        }
+      }, "Birthday: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "value",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 26,
+          columnNumber: 17
+        }
+      }, user && user.Birthday), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Title, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
+          columnNumber: 17
+        }
+      }, "Favorite Movies: "), /*#__PURE__*/_reactDefault.default.createElement("span", {
+        className: "value",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 29,
+          columnNumber: 17
+        }
+      }, favMovies.map(m => /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
+        key: m._id,
+        to: `/movies/${m._id}`,
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 31,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 32,
+          columnNumber: 23
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+        variant: "link",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 33,
+          columnNumber: 25
+        }
+      }, m.Title))))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Card.Title, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 39,
+          columnNumber: 17
+        }
+      }, "To Watch: ")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+        variant: "info",
+        onClick: () => {},
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51,
+          columnNumber: 15
+        }
+      }, "Edit Profile Info"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+        variant: "secondary",
+        onClick: () => {
+          onBackClick();
+        },
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 59,
+          columnNumber: 15
+        }
+      }, "Back"))))))
+    );
+  }
+  _c = Profile;
+  var _c;
+  $RefreshReg$(_c, "Profile");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

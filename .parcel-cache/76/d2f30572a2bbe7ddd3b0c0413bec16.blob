@@ -1,0 +1,174 @@
+var helpers = require("../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "ProfileUpdate", function () {
+    return ProfileUpdate;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _propTypes = require('prop-types');
+  var _propTypesDefault = _parcelHelpers.interopDefault(_propTypes);
+  require('axios');
+  var _reactRedux = require('react-redux');
+  var _actionsActions = require('../../actions/actions');
+  var _favoriteCardsFavoriteCards = require('../favorite-cards/favorite-cards');
+  require('react-bootstrap/Button');
+  require('react-bootstrap/Card');
+  var _reactBootstrapCol = require("react-bootstrap/Col");
+  var _reactBootstrapColDefault = _parcelHelpers.interopDefault(_reactBootstrapCol);
+  require("react-bootstrap/Row");
+  require('react-bootstrap/Form');
+  var _jsxFileName = "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\profile-update\\profile-update.jsx";
+  class ProfileUpdate extends _reactDefault.default.Component {
+    // constructor(props) {
+    // super(props);
+    // this.state = {
+    // validated: null
+    // };
+    // console.log('Profile View Loaded');
+    // this.handleUpdate = this.handleUpdate.bind(this);
+    // this.deRegister = this.deRegister.bind(this);
+    // }
+    // handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
+    // this.setState({
+    // validated: null,
+    // });
+    // const form = e.currentTarget;
+    // if (form.checkValidity() === false) {
+    // e.preventDefault();
+    // e.stopPropagation();
+    // this.setState({
+    // validated: true,
+    // });
+    // return;
+    // }
+    // e.preventDefault();
+    // const token = localStorage.getItem('token');
+    // const user = localStorage.getItem('user');
+    // const url = 'https://myflix-movie-api-2312.herokuapp.com/users/';
+    // axios({
+    // method: 'put',
+    // url: url + user,
+    // headers: { Authorization: `Bearer ${token}` },
+    // data: {
+    // Username: newUsername ? newUsername : this.state.Username,
+    // Password: newPassword ? newPassword : this.state.Password,
+    // Email: newEmail ? newEmail : this.state.Email,
+    // Birthday: newBirthday ? newBirthday : this.state.Birthday,
+    // },
+    // })
+    // .then(response => {
+    // this.setState({
+    // Username: response.data.Username,
+    // Password: response.data.Password,
+    // Email: response.data.Email,
+    // Birthday: response.data.Birthday,
+    // });
+    // alert('Changes have been saved!');
+    // localStorage.setItem('user', this.state.Username);
+    // })
+    // .catch(function (error) {
+    // console.log(error);
+    // });
+    // }
+    // setUsername(input) {
+    // this.Username = input;
+    // }
+    // setPassword(input) {
+    // this.Password = input;
+    // }
+    // setEmail(input) {
+    // this.Email = input;
+    // }
+    // setBirthday(input) {
+    // this.Birthday = input;
+    // }
+    // deRegister(e) {
+    // e.preventDefault();
+    // const token = localStorage.getItem('token');
+    // const user = localStorage.getItem('user');
+    // const url = 'https://myflix-movie-api-2312.herokuapp.com/users/';
+    // axios.delete(url + user, {
+    // headers: { Authorization: `Bearer ${token}` },
+    // })
+    // .then(result => {
+    // localStorage.clear();
+    // setUser({
+    // user: null,
+    // token: null
+    // });
+    // window.open('/', '_self');
+    // alert('Your account has been deleted!');
+    // })
+    // .catch(() => {
+    // console.log('error deleting the user');
+    // });
+    // }
+    render() {
+      // const { validated } = this.state;
+      // const { onBackClick } = this.props;
+      const {movies} = this.props;
+      const FavoriteMovieList = movies.filter(movie => {
+        return this.state.FavoriteMovies.includes(movie._id);
+      });
+      // const validated = null
+      // const username = localStorage.getItem('user');
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 127,
+            columnNumber: 7
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 177,
+            columnNumber: 9
+          }
+        }, FavoriteMovieList.map(m => /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapColDefault.default, {
+          md: 4,
+          key: m._id,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 180,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_favoriteCardsFavoriteCards.FavoriteCards, {
+          movie: m,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 181,
+            columnNumber: 15
+          }
+        })))))
+      );
+    }
+  }
+  _propTypesDefault.default.checkPropTypes(ProfileUpdate.propTypes);
+  ProfileUpdate.propTypes = {
+    user: _propTypesDefault.default.object.isRequired,
+    onBackClick: _propTypesDefault.default.func.isRequired
+  };
+  let mapStateToProps = state => {
+    return {
+      user: state.user,
+      movies: state.movies
+    };
+  };
+  exports.default = _reactRedux.connect(mapStateToProps, {
+    setUser: _actionsActions.setUser
+  })(ProfileUpdate);
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

@@ -1,0 +1,18 @@
+
+
+#card {
+  background: #1E2127;
+  color: white;
+  font-family: "Archivo", sans-serif;
+}
+
+#card-title {
+  font-size: 40px;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.my-flix {
+  color: steelblue;
+}
+/*# sourceMappingURL=index.HASH_REF_483382a0c90396020ca7c1c4778c89a2.css.map */

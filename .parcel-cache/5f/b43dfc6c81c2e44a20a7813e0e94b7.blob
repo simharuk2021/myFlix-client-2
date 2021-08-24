@@ -1,0 +1,11 @@
+#lg-card {
+  background: #1E2127;
+  color: white;
+  font-family: "Archivo", sans-serif;
+}
+
+#movie-title {
+  font-size: 30px;
+  font-weight: 900;
+  font-size: 30px;
+}

@@ -1,0 +1,25 @@
+$text-font: 'Archivo', sans-serif;
+$text-size: 18px;
+$title-size: 21px;
+$brand-size: 40px;
+$font-style: 400;
+$text-color: white;
+$bg-color: #1E2127;
+$yellow: #ffc107;
+$title-font: 'Archivo Black', sans-serif;
+
+#reg-form{
+  background-color: black;
+  color: $text-color;
+  font-family: $text-font;
+  font-size: $text-size;
+ 
+}
+
+.logo{
+  float: inline-end;
+  color: $yellow;
+  font-family: $title-font;
+  font-size: 50px;
+
+}

@@ -1,34 +1,34 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-export class MovieView extends React.Component {
 
-  render() {
-    const { movie, onBackClick } = this.props;
+import { Link } from "react-router-dom";
 
-    return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-director">
-          <span className="label">Director: </span>
-          <span className="value">{movie.Director}</span>
-        </div>
-        <div className="movie-genre">
-          <span className="label">Genre: </span>
-          <span className="value">{movie.Genre}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+import './movie-view.scss';
 
-      </div>
-    );
-  }
+export function MovieView(props) {
+  const { movie, onBackClick } = props;
+
+  return (
+    <Card id="lg-card" className="movie-view">
+      <Card.Header id="movie-title">{movie.Title}</Card.Header>
+      <Card.Img className="movie-poster" variant="top" src={movie.PosterPath} />
+      <Card.Body>
+        <Card.Text>
+          {movie.Description}
+          <br />
+          Genre: <Link to={`/genres/${movie.Genre.Name}`} id="link">{movie.Genre.Name}</Link>
+          <br />
+          Director:  <Link to={`/directors/${movie.Director.Name}`} id="link">{movie.Director.Name}</Link>
+          <br />
+        </Card.Text>
+        <Button id="backButton" variant="outline-light" onClick={onBackClick}>Back</Button>
+      </Card.Body >
+    </Card >
+  );
 }
+

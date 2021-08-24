@@ -1,0 +1,12 @@
+#myFlixNav {
+  background-color: #1E2127;
+  color: #ffc107 !important;
+}
+
+.appName {
+  color: #ffc107;
+}
+
+#link {
+  color: #ffc107;
+}

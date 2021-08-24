@@ -1,0 +1,73 @@
+#login-form {
+  background-color: black;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+  color: white;
+}
+
+.logo {
+  float: inline-end;
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 50px;
+}
+#reg-form {
+  background-color: black;
+  color: white;
+  font-family: "Archivo", sans-serif;
+  font-size: 18px;
+}
+
+.logo {
+  float: inline-end;
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 50px;
+}
+#card {
+  background: #1E2127;
+  color: white;
+  font-family: "Archivo", sans-serif;
+  border-radius: 10px;
+}
+
+#card-title {
+  font-size: 40px;
+  font-weight: 600;
+  font-size: 21px;
+}
+#lg-card {
+  background: #1E2127;
+  color: white;
+  font-family: "Archivo", sans-serif;
+  border-radius: 15px;
+}
+
+#movie-title {
+  font-size: 35px;
+  font-weight: 400;
+  font-size: 35px;
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+}
+
+
+#myFlixNav {
+  background-color: black;
+  color: #ffc107;
+}
+
+#appName {
+  color: #ffc107;
+  font-family: "Archivo Black", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+#link {
+  color: #ffc107 !important;
+}
+.app-container {
+  background-color: black;
+}
+/*# sourceMappingURL=index.HASH_REF_483382a0c90396020ca7c1c4778c89a2.css.map */

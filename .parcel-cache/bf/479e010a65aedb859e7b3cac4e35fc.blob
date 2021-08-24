@@ -1,0 +1,79 @@
+var helpers = require("../../../../../AppData/Roaming/nvm/v14.16.1/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "Navigation", function () {
+    return Navigation;
+  });
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _reactBootstrapNavbar = require('react-bootstrap/Navbar');
+  var _reactBootstrapNavbarDefault = _parcelHelpers.interopDefault(_reactBootstrapNavbar);
+  require('react-bootstrap/Container');
+  require('react-bootstrap/Button');
+  require("react-router-dom");
+  var _jsxFileName = "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\navigation\\navigation.jsx";
+  class Navigation extends _reactDefault.default.Component {
+    render() {
+      const {movies, user} = this.props;
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapNavbarDefault.default, {
+          className: "justify-space-between",
+          bg: "light",
+          sticky: "top",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 17,
+            columnNumber: 7
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapNavbarDefault.default.Brand, {
+          href: "#home",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 18,
+            columnNumber: 9
+          }
+        }, "Navbar with text"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapNavbarDefault.default.Toggle, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 19,
+            columnNumber: 9
+          }
+        }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapNavbarDefault.default.Collapse, {
+          className: "justify-content-end",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 20,
+            columnNumber: 9
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrapNavbarDefault.default.Text, {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 21,
+            columnNumber: 11
+          }
+        }, "Signed in as: ", /*#__PURE__*/_reactDefault.default.createElement("a", {
+          href: "#login",
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 22,
+            columnNumber: 27
+          }
+        }, "Mark Otto"))))
+      );
+    }
+  }
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

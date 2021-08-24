@@ -1,0 +1,37 @@
+$text-font: 'Archivo', sans-serif;
+$text-size: 18px;
+$title-size: 21px;
+$brand-size: 40px;
+$font-style: 400;
+$text-color: white;
+$bg-color: #1E2127;
+$yellow: #ffc107;
+$title-font: 'Archivo Black', sans-serif;
+
+//navigation style
+#myFlixNav{
+  background-color: black;
+  color: #ffc107;
+}
+#appName{
+  color: $yellow;
+  font-family: $title-font;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+#link{
+  color: #ffc107 !important;
+  font-size: 18px;
+  font-family: $text-font;
+}
+
+#toggle{
+  color: #ffc107 !important;
+}
+#logout{
+  // color: #ffc107 !important;
+  font-size: 18px;
+  font-family: $text-font;
+}
+

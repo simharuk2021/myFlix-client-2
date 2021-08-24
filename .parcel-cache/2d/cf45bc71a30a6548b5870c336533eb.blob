@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+
+<head><link rel="stylesheet" href="/index.HASH_REF_9d49dbb1d72130a76c36622b28ba4935.css">
+  <title>myFlix</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="app-container"></div>
+  <script src="/index.HASH_REF_7cb38b3cc4a20aed6354e32c52033be8.js"></script>
+</body>
+
+</html>

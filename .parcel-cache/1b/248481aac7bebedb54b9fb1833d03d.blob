@@ -1,0 +1,202 @@
+var helpers = require("../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LoginView", ()=>LoginView
+);
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+var _reactRedux = require("react-redux");
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+var _row = require("react-bootstrap/Row");
+var _rowDefault = parcelHelpers.interopDefault(_row);
+var _col = require("react-bootstrap/Col");
+var _colDefault = parcelHelpers.interopDefault(_col);
+var _loginViewScss = require("./login-view.scss");
+var _s = $RefreshSig$();
+function LoginView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const [usernameError, setUsernameError] = _react.useState('');
+    const [passwordError, setPasswordError] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        let setisValid = formValidation();
+        // console.log(username, password);
+        /* Send a request to the server for authentication */ if (setisValid) _axiosDefault.default.post('https://myflix-movie-api-2312.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((res)=>{
+            const data = res.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            console.log('no such user');
+        });
+    };
+    const formValidation = ()=>{
+        let usernameError1 = {
+        };
+        let passwordError1 = {
+        };
+        let isValid = true;
+        if (username.trim().length < 5) {
+            usernameError1.usernameShort = "Username be alphanumeric characters only and contains at least 5 characters";
+            isValid = false;
+        }
+        if (password.trim().length < 3) {
+            passwordError1.passwordMissing = "You must enter a password.(minimum 4 characters) ";
+            isValid = false;
+        }
+        setUsernameError(usernameError1);
+        setPasswordError(passwordError1);
+        return isValid;
+    };
+    return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+        id: "login-page",
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 62
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_rowDefault.default, {
+        className: "justify-content-md-center",
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 65
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_colDefault.default, {
+        md: 6,
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 66
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default, {
+        id: "login-form",
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 67
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formUsername",
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 68
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 69
+        },
+        __self: this
+    }, "Username: "), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "text",
+        onChange: (e)=>setUsername(e.target.value)
+        ,
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 70
+        },
+        __self: this
+    }), Object.keys(usernameError).map((key)=>{
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            },
+            __source: {
+                fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+                lineNumber: 73
+            },
+            __self: this
+        }, usernameError[key]));
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Group, {
+        controlId: "formPassword",
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 79
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Label, {
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 80
+        },
+        __self: this
+    }, "Password: "), /*#__PURE__*/ _reactDefault.default.createElement(_formDefault.default.Control, {
+        type: "password",
+        onChange: (e)=>setPassword(e.target.value)
+        ,
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 81
+        },
+        __self: this
+    }), Object.keys(passwordError).map((key)=>{
+        return(/*#__PURE__*/ _reactDefault.default.createElement("div", {
+            key: key,
+            style: {
+                color: "red"
+            },
+            __source: {
+                fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+                lineNumber: 84
+            },
+            __self: this
+        }, passwordError[key]));
+    })), /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        id: "login-btn",
+        variant: "outline-warning mr-4",
+        type: "submit",
+        onClick: handleSubmit,
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 90
+        },
+        __self: this
+    }, "Submit"), '', " Not yet a member?", /*#__PURE__*/ _reactDefault.default.createElement(_reactRouterDom.Link, {
+        to: `/register`,
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 91
+        },
+        __self: this
+    }, /*#__PURE__*/ _reactDefault.default.createElement(_buttonDefault.default, {
+        id: "link",
+        variant: "link",
+        __source: {
+            fileName: "C:\\Users\\gmacy\\.vscode\\myFlix-client\\src\\components\\login-view\\login-view.jsx",
+            lineNumber: 92
+        },
+        __self: this
+    }, "Register Now")))))));
+}
+_s(LoginView, "r1wiWNQyLl+vlW1xMlavQGs4Wgw=");
+_c = LoginView;
+const mapDispatchToProps = (dispatch)=>({
+        handleSubmit: (username, password)=>dispatch(handleSubmit(username, password))
+    })
+;
+exports.default = _reactRedux.connect(null, mapDispatchToProps)(LoginView);
+var _c;
+$RefreshReg$(_c, "LoginView");
+
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

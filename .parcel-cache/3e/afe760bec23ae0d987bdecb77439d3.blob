@@ -1,6 +1,0 @@
-#reg-form {
-  background-color: black;
-  color: white;
-  font-family: "Archivo", sans-serif;
-  font-size: 18px;
-}

@@ -25506,6 +25506,8 @@ parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
 parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
 );
+parcelHelpers.export(exports, "SET_REQUEST", ()=>SET_REQUEST
+);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
@@ -25517,6 +25519,7 @@ parcelHelpers.export(exports, "setRequest", ()=>setRequest
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
+const SET_REQUEST = 'SET_REQUEST';
 function setMovies(value) {
     console.log('SET_MOVIES action reached');
     return {

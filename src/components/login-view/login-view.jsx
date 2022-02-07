@@ -25,7 +25,7 @@ export function LoginView(props) {
     /* Send a request to the server for authentication */
 
     if (setisValid) {
-      axios.post('https://myflix-movie-api-2312.herokuapp.com/login', {
+      axios.post('https://my-movies-souperapp.herokuapp.com/login', {
         Username: username,
         Password: password
       })

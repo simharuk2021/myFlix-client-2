@@ -28,7 +28,7 @@ export function RegistrationView(props) {
     let setisValid = formValidation();
     // console.log(username, password, email, birthday);
     if (setisValid) {
-      axios.post('https://myflix-movie-api-2312.herokuapp.com/users', {
+      axios.post('https://my-movies-souperapp.herokuapp.com/users', {
         Username: username,
         Password: password,
         Email: email,

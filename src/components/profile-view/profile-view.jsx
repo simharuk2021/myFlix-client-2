@@ -47,7 +47,7 @@ export class ProfileView extends React.Component {
 
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
-    const url = 'https://myflix-movie-api-2312.herokuapp.com/users/';
+    const url = 'https://my-movies-souperapp.herokuapp.com/users/';
 
     axios({
       method: 'put',
@@ -95,8 +95,8 @@ export class ProfileView extends React.Component {
   removeFavorite(movie) {
     const token = localStorage.getItem("token");
     axios
-      .delete("https://myflix-movie-api-2312.herokuapp.com/users/" +
-        localStorage.getItem("user") + "/favorites/" + movie._id,
+      .delete("https://my-movies-souperapp.herokuapp.com/users/" +
+        localStorage.getItem("user") + "/FavoriteMovies/" + movie._id,
         {
           headers: { Authorization: `Bearer ${token}` },
         })
@@ -110,7 +110,7 @@ export class ProfileView extends React.Component {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
     axios.delete(
-      `https://myflix-movie-api-2312.herokuapp.com/users/${user}`,
+      `https://my-movies-souperapp.herokuapp.com/users/${user}`,
       { headers: { Authorization: `Bearer ${token}` } }
     )
       .then(() => {

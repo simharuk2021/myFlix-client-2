@@ -18,7 +18,7 @@ export function DirectorView(props) {
       <Card.Body>
         <Card.Text>
           Bio: {director.Bio} <br />
-          DOB-DOD: {director.Birth}  - {director.Death}<br />
+          Born: {director.Birth}  <br />
         </Card.Text>
         <Button variant="outline-light" onClick={onBackClick}>Back</Button>
       </Card.Body>
@@ -32,7 +32,6 @@ DirectorView.propTypes = {
     Name: PropTypes.string.isRequired,
     Bio: PropTypes.string.isRequired,
     Birth: PropTypes.string.isRequired,
-    Death: PropTypes.string
   }).isRequired,
   onBackClick: PropTypes.func.isRequired
 };

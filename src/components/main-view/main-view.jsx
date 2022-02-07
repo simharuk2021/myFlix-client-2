@@ -47,7 +47,7 @@ export class MainView extends React.Component {
   }
 
   getUsers(token, username) {
-    const url = "https://myflix-movie-api-2312.herokuapp.com/users/" + username;
+    const url = "https://my-movies-souperapp.herokuapp.com/users/" + username;
     axios.get(url, {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -61,7 +61,7 @@ export class MainView extends React.Component {
   }
 
   getMovies(token) {
-    axios.get('https://myflix-movie-api-2312.herokuapp.com/movies', {
+    axios.get('https://my-movies-souperapp.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
     })
       .then(response => {
@@ -94,6 +94,10 @@ export class MainView extends React.Component {
     this.setState({
       register
     });
+  }
+
+   refreshPage() {
+    window.location.reload(false);
   }
 
   render() {

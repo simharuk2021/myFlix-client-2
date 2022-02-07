@@ -97,7 +97,7 @@ export class MainView extends React.Component {
   }
 
    refreshPage() {
-    window.location.reload(false);
+    window.location.reload();
   }
 
   render() {

@@ -9,20 +9,24 @@ import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { setUser } from '../../actions/actions';
 
+// creates a variable and imports an icon 
 import heartImg from 'url:../../img/heart.svg';
 
 import './movie-card.scss';
 
+// creates a class based component and sets props and state
 export class MovieCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
+//logic which access the authenticated user data
   handleAdd() {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
 
+//lofic which posts a user selected favorite movie to the API, whcih stores the movie id and returns a success message   
     axios.post(`https://my-movies-souperapp.herokuapp.com/users/${user}` + "/FavoriteMovies/" +
       this.props.movie._id, {},
       { headers: { Authorization: `Bearer ${token}` } }
@@ -34,6 +38,7 @@ export class MovieCard extends React.Component {
       })
   }
 
+// creates the movie card with links to more details and the option to add the movie to favorites by clicking on an icon  
   render() {
     const { movie, setUser } = this.props;
 

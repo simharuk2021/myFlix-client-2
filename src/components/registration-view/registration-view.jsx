@@ -11,7 +11,7 @@ import Col from 'react-bootstrap/Col';
 
 import './registration-view.scss';
 
-
+//creates a function based component and sets state for the registration 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -23,10 +23,10 @@ export function RegistrationView(props) {
   const [emailError, setEmailError] = useState({});
   const [birthdayError, setBirthdayError] = useState({});
 
+//logic which prevents default behaviour and waits for the validated form to be completed before making the post to register a new user  
   const handleSubmit = (e) => {
     e.preventDefault();
     let setisValid = formValidation();
-    // console.log(username, password, email, birthday);
     if (setisValid) {
       axios.post('https://my-movies-souperapp.herokuapp.com/users', {
         Username: username,
@@ -42,10 +42,10 @@ export function RegistrationView(props) {
         .catch(e => {
           console.log('error registering the user')
         });
-      // props.onRegister(username);
     };
   }
 
+//  validates the form and sets expected variables including placeholder input guidance
   const formValidation = () => {
     let usernameError = {};
     let passwordError = {};
@@ -76,9 +76,9 @@ export function RegistrationView(props) {
     return isValid;
   };
 
+// creates the registration form and calls the previous logic on validated input   
   return (
     <div id="reg-page">
-      {/* <h3 className="logo">myFlix</h3> */}
       <Row className="justify-content-md-center">
         <Col md={6}>
           <Form id="reg-form">

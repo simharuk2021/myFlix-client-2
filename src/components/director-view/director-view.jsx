@@ -9,9 +9,10 @@ import './director-view.scss';
 
 export function DirectorView(props) {
 
-
+//Set the properties 
   const { director, onBackClick } = props;
 
+  // returns a card with director details 
   return (
     <Card id="lg-card" className="director-view">
       <Card.Header id="movie-title">{director.Name}</Card.Header>

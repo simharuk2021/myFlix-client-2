@@ -12,18 +12,19 @@ import Col from 'react-bootstrap/Col';
 
 import './login-view.scss';
 
+//initiliases the properties
 export function LoginView(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
+  //removes default behaviour of the page reloading so the app waits for the submit button to be clicked 
   const handleSubmit = (e) => {
     e.preventDefault();
     let setisValid = formValidation();
-    // console.log(username, password);
-    /* Send a request to the server for authentication */
-
+    
+  //makes a call to the API login endpoint sending the username and password.  returns an error if no such user is found
     if (setisValid) {
       axios.post('https://my-movies-souperapp.herokuapp.com/login', {
         Username: username,
@@ -39,6 +40,7 @@ export function LoginView(props) {
     };
   }
 
+  // logic which validates the login form data
   const formValidation = () => {
     let usernameError = {};
     let passwordError = {};
@@ -57,10 +59,11 @@ export function LoginView(props) {
     return isValid;
   };
 
+  // returns the login form and logic for submitting the call to the login API
   return (
 
     <div id="login-page">
-      {/* <h3 className="logo">myFlix</h3> */}
+
 
       <Row className="justify-content-md-center">
         <Col md={6}>

@@ -14,10 +14,12 @@ import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
+//creates a variable and imports an icon
 import trashImg from 'url:../../img/trash.svg';
 
 import './profile-view.scss';
 
+//creates a class based component and sets properties and state
 export class ProfileView extends React.Component {
   constructor(props) {
     super(props);
@@ -28,27 +30,28 @@ export class ProfileView extends React.Component {
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
+//sets parameters for preventing default behaviour  
   handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
     this.setState({
       validated: null,
     });
 
+// creates logic which prevents default behaviour for a form    
     const form = e.currentTarget;
     if (form.checkValidity() === false) {
       e.preventDefault();
       e.stopPropagation();
       this.props.setUser();
-      // this.setState({
-      //   validated: true,
-      // });
       return;
     }
     e.preventDefault();
 
+// sets the authenticated user details and the API endoint to variables    
     const token = localStorage.getItem('token');
     const user = localStorage.getItem('user');
     const url = 'https://my-movies-souperapp.herokuapp.com/users/';
 
+// sets the variables for making an Axios put request to the API for updating profile details     
     axios({
       method: 'put',
       url: url + user,
@@ -91,7 +94,7 @@ export class ProfileView extends React.Component {
     this.Birthday = input;
   }
 
-
+//creates the logic for removing a favorite movie which are located in the local storage for the user
   removeFavorite(movie) {
     const token = localStorage.getItem("token");
     axios
@@ -106,6 +109,8 @@ export class ProfileView extends React.Component {
         alert(movie.Title + " has been removed from your Favorites.");
       });
   }
+
+// logic for deleting a user account which clears the local storage and makes a delete request to the API
   handleDelete() {
     const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
@@ -124,6 +129,7 @@ export class ProfileView extends React.Component {
       });
   }
 
+// rendering the favorite movies and the form for updating and deleting user details
   render() {
     const { movies, user, setUser } = this.props;
     const { validated } = this.state;
@@ -183,12 +189,6 @@ export class ProfileView extends React.Component {
               <br />
             </div>
           </Col>
-
-
-
-
-
-
 
           <Col md={6} >
 

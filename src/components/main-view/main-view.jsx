@@ -27,8 +27,10 @@ import { Navbar } from 'react-bootstrap';
 
 import './main-view.scss';
 
+// creates a variable and imports the icon
 import videoLogo from 'url:../../img/2215481_camera_film_icon.svg';
 
+//creates a class based component which is imported and re-used in other components
 export class MainView extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +39,7 @@ export class MainView extends React.Component {
       register: false
     };
   }
-
+//mounts the component once an authenticated user is within local storage
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
@@ -46,6 +48,7 @@ export class MainView extends React.Component {
     }
   }
 
+//makes a call to the user endpoint to search through the users and assign the logged in user to state
   getUsers(token, username) {
     const url = "https://my-movies-souperapp.herokuapp.com/users/" + username;
     axios.get(url, {
@@ -60,6 +63,7 @@ export class MainView extends React.Component {
       });
   }
 
+//makes a call to retrieve all of the movies from the API
   getMovies(token) {
     axios.get('https://my-movies-souperapp.herokuapp.com/movies', {
       headers: { Authorization: `Bearer ${token}` }
@@ -82,6 +86,7 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+//logic which removes the user from local storage and returns to the login page
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
@@ -90,21 +95,19 @@ export class MainView extends React.Component {
       user: null
     });
   }
-
+//logic which sets registration details to state
   onRegister(register) {
     this.setState({
       register
     });
   }
 
-   refreshPage() {
-    window.location.reload();
-  }
-
+//logic which sets the movies and user as properties
   render() {
     let { movies, user } = this.props;
     console.log("render", user);
 
+//creates a navbar which creates movies, account and log out functionality which is re-used across other relevant components    
     return (
       <Router>
         <div className="main-view justify-content-md-center">
@@ -141,6 +144,7 @@ export class MainView extends React.Component {
             </Navbar.Collapse>
           </Navbar>
 
+{/* defines route paths which are used to make calls to the API and retrieve data and toggle relevant views */}
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
               if (!user) return <Col>
@@ -208,7 +212,6 @@ export class MainView extends React.Component {
                 <ProfileView
                   user={user}
                   movies={movies}
-                  // movie={movies.find(m => m._id === match.params.movieId)}
                   onBackClick={() => history.goBack()} />
               </Col>
             }} />

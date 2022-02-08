@@ -10,9 +10,11 @@ import { Link } from "react-router-dom";
 
 import './movie-view.scss';
 
+//creates a function based component and sets properties
 export function MovieView(props) {
   const { movie, onBackClick } = props;
 
+//creates card with populated movie data including links to Genre and Director details  
   return (
     <Card id="lg-card" className="movie-view">
       <Card.Header id="movie-title">{movie.Title}</Card.Header>

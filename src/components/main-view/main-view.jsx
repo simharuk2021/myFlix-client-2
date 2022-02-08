@@ -27,7 +27,7 @@ import { Navbar } from 'react-bootstrap';
 
 import './main-view.scss';
 
-import videoLogo from 'url:../../img/video.svg';
+import videoLogo from 'url:../../img/2215481_camera_film_icon.svg';
 
 export class MainView extends React.Component {
   constructor(props) {
@@ -133,7 +133,7 @@ export class MainView extends React.Component {
                     <Button id="link" variant="link">Movies</Button>
                   </Link>{''}
                   <Link to={'/'}>
-                    <Button id="logout" variant="outline-warning" onClick={() => this.onLoggedOut()}>Log Out</Button>
+                    <Button id="logout" variant="outline-success" onClick={() => this.onLoggedOut()}>Log Out</Button>
                   </Link>
                 </ul>
               )}

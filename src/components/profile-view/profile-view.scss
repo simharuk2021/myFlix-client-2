@@ -4,9 +4,9 @@ $text-size: 18px;
 $title-size: 21px;
 $brand-size: 40px;
 $font-style: 400;
-$text-color: white;
+$text-color: #63ce4e;
 $bg-color: #1E2127;
-$yellow: #ffc107;
+$yellow: #63ce4e;
 $title-font: 'Archivo Black', sans-serif;
 
 #userForm{
@@ -27,7 +27,7 @@ h4{
 }
 
 #link{
-  color: #ffc107;
+  color: #63ce4e;
   font-size: 18px;
   font-family: $text-font;
 }
@@ -39,6 +39,7 @@ float: right;
 display: flex;
 align-items: flex-end;
 justify-content:flex-end;
+color: #63ce4e
 }
 
 #save-btn{

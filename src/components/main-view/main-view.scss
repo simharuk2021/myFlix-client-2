@@ -5,13 +5,13 @@ $brand-size: 40px;
 $font-style: 400;
 $text-color: white;
 $bg-color: #1E2127;
-$yellow: #ffc107;
+$yellow: #63ce4e;
 $title-font: 'Archivo Black', sans-serif;
 
 //navigation style
 #myFlixNav{
   background-color: black;
-  color: #ffc107;
+  color: #63ce4e;
 }
 #appName{
   color: $yellow;
@@ -21,20 +21,21 @@ $title-font: 'Archivo Black', sans-serif;
 }
 
 #link{
-  color: #ffc107 !important;
+  color: #63ce4e !important;
   font-size: 18px;
   font-family: $text-font;
 }
 
 #toggle{
-  color: #ffc107 !important;
+  color: #63ce4e !important;
 }
 #logout{
   // color: #ffc107 !important;
   font-size: 18px;
   font-family: $text-font;
+  color: #63ce4e;
 }
 
 .d-inline-block align-top{
-  color:yellow;
+  color:#63ce4e;
 }

@@ -3,16 +3,16 @@ $text-size: 18px;
 $title-size: 21px;
 $brand-size: 40px;
 $font-style: 400;
-$text-color: white;
+$text-color: #63ce4e;
 $bg-color: #1E2127;
-$yellow: #ffc107;
+$yellow: #63ce4e;
 $title-font: 'Archivo Black', sans-serif;
 
 #login-form{
   background-color: black;
   font-family: $text-font;
   font-size: $text-size;
-  color: white;
+  color: #63ce4e;
   padding-bottom: 230px;
 }
 
@@ -24,9 +24,10 @@ $title-font: 'Archivo Black', sans-serif;
 }
 
 #link{
-  color: #ffc107 !important;
+  color: #63ce4e !important;
 }
 
 #login-btn{
   font-size: $text-size;
+  color: #63ce4e;
 }

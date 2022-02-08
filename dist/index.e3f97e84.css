@@ -11,6 +11,7 @@
   font-weight: 600;
   font-size: 19px;
   font-family: "Archivo", sans-serif;
+  color: #63ce4e;
 }
 
 #heart-img:hover {
@@ -25,28 +26,30 @@
 #openMovie {
   font-family: "Archivo", sans-serif;
   font-size: 16px;
+  color: #63ce4e;
 }
 #login-form {
   background-color: black;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
-  color: white;
+  color: #63ce4e;
   padding-bottom: 230px;
 }
 
 .logo {
   float: inline-end;
-  color: #ffc107;
+  color: #63ce4e;
   font-family: "Archivo Black", sans-serif;
   font-size: 50px;
 }
 
 #link {
-  color: #ffc107 !important;
+  color: #63ce4e !important;
 }
 
 #login-btn {
   font-size: 18px;
+  color: #63ce4e;
 }
 #reg-form {
   background-color: black;
@@ -57,7 +60,7 @@
 
 .logo {
   float: inline-end;
-  color: #ffc107;
+  color: #63ce4e;
   font-family: "Archivo Black", sans-serif;
   font-size: 50px;
 }
@@ -78,7 +81,7 @@
 }
 
 #link {
-  color: #ffc107 !important;
+  color: #63ce4e !important;
 }
 
 #backButton {
@@ -88,26 +91,26 @@
 
 
 #userForm {
-  color: white;
+  color: #63ce4e;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
 }
 
 h4 {
-  color: white;
+  color: #63ce4e;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
 }
 
 #favoriteMovies {
-  color: white;
+  color: #63ce4e;
   font-family: "Archivo", sans-serif;
   font-size: 18px;
   display: inline;
 }
 
 #link {
-  color: #ffc107;
+  color: #63ce4e;
   font-size: 18px;
   font-family: "Archivo", sans-serif;
 }
@@ -119,6 +122,7 @@ h4 {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  color: #63ce4e;
 }
 
 #save-btn {
@@ -126,33 +130,34 @@ h4 {
 }
 #myFlixNav {
   background-color: black;
-  color: #ffc107;
+  color: #63ce4e;
 }
 
 #appName {
-  color: #ffc107;
+  color: #63ce4e;
   font-family: "Archivo Black", sans-serif;
   font-size: 40px;
   font-weight: 600;
 }
 
 #link {
-  color: #ffc107 !important;
+  color: #63ce4e !important;
   font-size: 18px;
   font-family: "Archivo", sans-serif;
 }
 
 #toggle {
-  color: #ffc107 !important;
+  color: #63ce4e !important;
 }
 
 #logout {
   font-size: 18px;
   font-family: "Archivo", sans-serif;
+  color: #63ce4e;
 }
 
 .d-inline-block align-top {
-  color: yellow;
+  color: #63ce4e;
 }
 .app-container {
   background-color: black;

@@ -25873,8 +25873,8 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _reactBootstrap = require("react-bootstrap");
 var _mainViewScss = require("./main-view.scss");
-var _videoSvg = require("url:../../img/video.svg");
-var _videoSvgDefault = parcelHelpers.interopDefault(_videoSvg);
+var _2215481CameraFilmIconSvg = require("url:../../img/2215481_camera_film_icon.svg");
+var _2215481CameraFilmIconSvgDefault = parcelHelpers.interopDefault(_2215481CameraFilmIconSvg);
 class MainView extends _reactDefault.default.Component {
     constructor(props){
         super(props);
@@ -25957,7 +25957,7 @@ class MainView extends _reactDefault.default.Component {
                                 children: [
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV("img", {
                                         alt: "",
-                                        src: _videoSvgDefault.default,
+                                        src: _2215481CameraFilmIconSvgDefault.default,
                                         width: "50",
                                         height: "50",
                                         className: "d-inline-block align-top"
@@ -26028,7 +26028,7 @@ class MainView extends _reactDefault.default.Component {
                                             to: '/',
                                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
                                                 id: "logout",
-                                                variant: "outline-warning",
+                                                variant: "outline-success",
                                                 onClick: ()=>this.onLoggedOut()
                                                 ,
                                                 children: "Log Out"
@@ -26247,7 +26247,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-redux":"bdVon","react-router-dom":"cHIiW","../../actions/actions":"biFwH","../movies-list/movies-list":"bPxKK","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-view/movie-view":"ggaUx","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0","../profile-view/profile-view":"2vVqf","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","url:../../img/video.svg":"1YWt9"}],"jo6P5":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","axios":"jo6P5","react-redux":"bdVon","react-router-dom":"cHIiW","../../actions/actions":"biFwH","../movies-list/movies-list":"bPxKK","../login-view/login-view":"9YtA0","../registration-view/registration-view":"3U8r7","../movie-view/movie-view":"ggaUx","../director-view/director-view":"9tpci","../genre-view/genre-view":"4tuA0","../profile-view/profile-view":"2vVqf","react-bootstrap/Row":"cMC39","react-bootstrap/Col":"2L2I6","react-bootstrap/Button":"aPzUt","react-bootstrap":"3AD9A","./main-view.scss":"eBaMl","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","url:../../img/2215481_camera_film_icon.svg":"9Psry"}],"jo6P5":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"63MyY"}],"63MyY":[function(require,module,exports) {
@@ -31251,7 +31251,7 @@ class MovieCard extends _reactDefault.default.Component {
                             to: `/movies/${movie._id}`,
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
                                 id: "openMovie",
-                                variant: "outline-light",
+                                variant: "outline-success",
                                 children: "Open"
                             }, void 0, false, {
                                 fileName: "src/components/movie-card/movie-card.jsx",
@@ -31785,7 +31785,7 @@ function LoginView(props) {
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
                             id: "login-btn",
-                            variant: "outline-warning mr-4",
+                            variant: "outline-success mr-4",
                             type: "submit",
                             onClick: handleSubmit,
                             children: "Submit"
@@ -32151,7 +32151,7 @@ function RegistrationView(props) {
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                            variant: "outline-warning",
+                            variant: "outline-success",
                             type: "button",
                             onClick: handleSubmit,
                             children: "Submit"
@@ -32167,7 +32167,7 @@ function RegistrationView(props) {
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Link, {
                             to: `/`,
                             children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                variant: "outline-light",
+                                variant: "outline-success",
                                 children: "Back to Login"
                             }, void 0, false, {
                                 fileName: "src/components/registration-view/registration-view.jsx",
@@ -32409,7 +32409,7 @@ function DirectorView(props) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                        variant: "outline-light",
+                        variant: "outline-success",
                         onClick: onBackClick,
                         children: "Back"
                     }, void 0, false, {
@@ -32501,7 +32501,7 @@ function GenreView(props) {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                        variant: "outline-light",
+                        variant: "outline-success",
                         onClick: onBackClick,
                         children: "Back"
                     }, void 0, false, {
@@ -32833,7 +32833,7 @@ class ProfileView extends _reactDefault.default.Component {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                            variant: "outline-warning",
+                                            variant: "outline-success",
                                             block: true,
                                             type: "submit",
                                             children: "Update"
@@ -32855,7 +32855,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_buttonDefault.default, {
-                                    variant: "outline-warning",
+                                    variant: "outline-success",
                                     block: true,
                                     onClick: ()=>this.handleDelete()
                                     ,
@@ -34956,8 +34956,8 @@ exports.default = SelectableContext;
 },{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kQpe2":[function(require,module,exports) {
 module.exports = require('./helpers/bundle-url').getBundleURL('byUka') + "trash.81985880.svg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"eyKYH":[function() {},{}],"eBaMl":[function() {},{}],"1YWt9":[function(require,module,exports) {
-module.exports = require('./helpers/bundle-url').getBundleURL('byUka') + "video.744f75d0.svg" + "?" + Date.now();
+},{"./helpers/bundle-url":"lgJ39"}],"eyKYH":[function() {},{}],"eBaMl":[function() {},{}],"9Psry":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('byUka') + "2215481_camera_film_icon.6f2f592c.svg" + "?" + Date.now();
 
 },{"./helpers/bundle-url":"lgJ39"}],"lJZlQ":[function() {},{}]},["kn9T2","1SYPb","d8Dch"], "d8Dch", "parcelRequireaec4")
 

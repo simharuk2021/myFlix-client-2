@@ -126,9 +126,9 @@ export function RegistrationView(props) {
                 );
               })}
             </Form.Group>
-            <Button variant="outline-warning" type="button" onClick={handleSubmit}>Submit</Button> {''} {''}
+            <Button variant="outline-success" type="button" onClick={handleSubmit}>Submit</Button> {''} {''}
             <Link to={`/`}>
-              <Button variant="outline-light">Back to Login</Button>
+              <Button variant="outline-success">Back to Login</Button>
             </Link>
           </Form>
         </Col>

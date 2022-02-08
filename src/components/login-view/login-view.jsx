@@ -87,7 +87,7 @@ export function LoginView(props) {
                 );
               })}
             </Form.Group>
-            <Button id="login-btn" variant="outline-warning mr-4" type="submit" onClick={handleSubmit}>Submit</Button>{''} Not yet a member?
+            <Button id="login-btn" variant="outline-success mr-4" type="submit" onClick={handleSubmit}>Submit</Button>{''} Not yet a member?
             <Link to={`/register`}>
               <Button id="link" variant="link">Register Now</Button>
             </Link>

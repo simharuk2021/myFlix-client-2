@@ -20,7 +20,7 @@ export function DirectorView(props) {
           Bio: {director.Bio} <br />
           Born: {director.Birth}  <br />
         </Card.Text>
-        <Button variant="outline-light" onClick={onBackClick}>Back</Button>
+        <Button variant="outline-success" onClick={onBackClick}>Back</Button>
       </Card.Body>
     </Card>
   );

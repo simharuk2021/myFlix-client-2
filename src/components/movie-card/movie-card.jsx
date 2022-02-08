@@ -44,7 +44,7 @@ export class MovieCard extends React.Component {
           <Card.Title id="card-title">{movie.Title}</Card.Title>
           <Card.Text>{movie.Description.slice(0, 75)}...</Card.Text>
           <Link to={`/movies/${movie._id}`}>
-            <Button id="openMovie" variant="outline-light">Open</Button>
+            <Button id="openMovie" variant="outline-success">Open</Button>
           </Link>
           <button type="button" className="btn btn-white btn-rounded mr-md-3 z-depth-1a">
             <img id="heart-img"

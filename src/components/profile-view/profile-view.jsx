@@ -175,11 +175,11 @@ export class ProfileView extends React.Component {
                     onChange={(e) => this.setBirthday(e.target.value)} />
                   <Form.Control.Feedback type='invalid'>Please enter a valid date.</Form.Control.Feedback>
                 </Form.Group>
-                <Button variant="outline-warning" block type="submit">Update</Button>
+                <Button variant="outline-success" block type="submit">Update</Button>
               </Form>
 
               <br />
-              <Button variant="outline-warning" block onClick={() => this.handleDelete()}>Delete Account</Button>
+              <Button variant="outline-success" block onClick={() => this.handleDelete()}>Delete Account</Button>
               <br />
             </div>
           </Col>

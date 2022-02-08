@@ -17,7 +17,7 @@ export function GenreView(props) {
         <Card.Text>
           {genre.Description} <br />
         </Card.Text>
-        <Button variant="outline-light" onClick={onBackClick}>Back</Button>
+        <Button variant="outline-success" onClick={onBackClick}>Back</Button>
       </Card.Body>
     </Card>
   );
